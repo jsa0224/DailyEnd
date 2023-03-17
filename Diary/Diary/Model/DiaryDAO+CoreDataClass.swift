@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(Diary)
-public class Diary: NSManagedObject {
+@objc(DiaryDAO)
+public class DiaryDAO: NSManagedObject {
 
 }

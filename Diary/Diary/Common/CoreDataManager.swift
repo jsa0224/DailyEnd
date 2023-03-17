@@ -45,19 +45,19 @@ final class CoreDataManager: CoreDataManageable {
         try saveContext()
     }
 
-    func fetch(with id: NSManagedObjectID?) -> Diary? {
+    func fetch(with id: NSManagedObjectID?) -> DiaryDAO? {
         guard let id = id else { return nil }
 
-        return context.object(with: id) as? Diary
+        return context.object(with: id) as? DiaryDAO
     }
 
-    func fetchAllEntities() throws -> [Diary] {
-        let request = Diary.fetchRequest()
+    func fetchAllEntities() throws -> [DiaryDAO] {
+        let request = DiaryDAO.fetchRequest()
         return try context.fetch(request)
     }
 
     func fetchObjectID(with id: UUID) -> NSManagedObjectID? {
-        let fetchRequest = Diary.fetchRequest()
+        let fetchRequest = DiaryDAO.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: CoreDataNamespace.regex, id.uuidString)
 
         let result = try? context.fetch(fetchRequest)
@@ -67,7 +67,7 @@ final class CoreDataManager: CoreDataManageable {
     func update(objectID: NSManagedObjectID?, title: String?, body: String?, weatherMain: String?, weatherIcon: String?) throws {
         guard let objectID = objectID else { return }
 
-        guard let object = context.object(with: objectID) as? Diary else { return }
+        guard let object = context.object(with: objectID) as? DiaryDAO else { return }
 
         object.setValue(title, forKey: CoreDataNamespace.title)
         object.setValue(body, forKey: CoreDataNamespace.body)

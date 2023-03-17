@@ -10,8 +10,8 @@ import CoreData
 
 protocol CoreDataManageable {
     func insert(with id: UUID) throws
-    func fetch(with id: NSManagedObjectID?) -> Diary?
-    func fetchAllEntities() throws -> [Diary]
+    func fetch(with id: NSManagedObjectID?) -> DiaryDAO?
+    func fetchAllEntities() throws -> [DiaryDAO]
     func fetchObjectID(with id: UUID) -> NSManagedObjectID?
     func update(objectID: NSManagedObjectID?, title: String?, body: String?, weatherMain: String?, weatherIcon: String?) throws
     func delete(with id: NSManagedObjectID?) throws

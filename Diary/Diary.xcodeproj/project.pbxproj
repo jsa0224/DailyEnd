@@ -11,7 +11,7 @@
 		AEC65ED429C098C8006E8177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED329C098C8006E8177 /* AppDelegate.swift */; };
 		AEC65ED629C098C8006E8177 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED529C098C8006E8177 /* SceneDelegate.swift */; };
 		AEC65ED829C098C8006E8177 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED729C098C8006E8177 /* ViewController.swift */; };
-		AEC65EDE29C098C8006E8177 /* Diary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEC65EDC29C098C8006E8177 /* Diary.xcdatamodeld */; };
+		AEC65EDE29C098C8006E8177 /* DiaryDAO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEC65EDC29C098C8006E8177 /* DiaryDAO.xcdatamodeld */; };
 		AEC65EE029C098C9006E8177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEC65EDF29C098C9006E8177 /* Assets.xcassets */; };
 		AEC65EE329C098C9006E8177 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC65EE129C098C9006E8177 /* LaunchScreen.storyboard */; };
 		AEEF099C29C09BA00029CC46 /* DiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEF099B29C09BA00029CC46 /* DiaryModel.swift */; };
@@ -93,7 +93,7 @@
 				AEC65EDF29C098C9006E8177 /* Assets.xcassets */,
 				AEC65EE129C098C9006E8177 /* LaunchScreen.storyboard */,
 				AEC65EE429C098C9006E8177 /* Info.plist */,
-				AEC65EDC29C098C8006E8177 /* Diary.xcdatamodeld */,
+				AEC65EDC29C098C8006E8177 /* DiaryDAO.xcdatamodeld */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -252,7 +252,7 @@
 				AEEF099C29C09BA00029CC46 /* DiaryModel.swift in Sources */,
 				AEC65ED429C098C8006E8177 /* AppDelegate.swift in Sources */,
 				AEC65ED629C098C8006E8177 /* SceneDelegate.swift in Sources */,
-				AEC65EDE29C098C8006E8177 /* Diary.xcdatamodeld in Sources */,
+				AEC65EDE29C098C8006E8177 /* DiaryDAO.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,13 +462,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		AEC65EDC29C098C8006E8177 /* Diary.xcdatamodeld */ = {
+		AEC65EDC29C098C8006E8177 /* DiaryDAO.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				AEC65EDD29C098C8006E8177 /* Diary.xcdatamodel */,
 			);
 			currentVersion = AEC65EDD29C098C8006E8177 /* Diary.xcdatamodel */;
-			path = Diary.xcdatamodeld;
+			path = DiaryDAO.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

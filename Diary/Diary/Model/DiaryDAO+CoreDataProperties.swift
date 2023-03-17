@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-extension Diary {
+extension DiaryDAO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Diary> {
-        return NSFetchRequest<Diary>(entityName: "Diary")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<DiaryDAO> {
+        return NSFetchRequest<Diary>(entityName: "DiaryDAO")
     }
 
     @NSManaged public var body: String?
