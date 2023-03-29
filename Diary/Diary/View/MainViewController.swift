@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  Diary
 //
 //  Created by 정선아 on 2023/03/14.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
