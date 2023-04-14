@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import RxSwift
 
 final class CoreDataManager: CoreDataManageable {
     static let shared = CoreDataManager()
@@ -45,15 +46,32 @@ final class CoreDataManager: CoreDataManageable {
         try saveContext()
     }
 
-    func fetch(with id: NSManagedObjectID?) -> DiaryDAO? {
-        guard let id = id else { return nil }
+    func fetch(with id: NSManagedObjectID) -> Observable<DiaryDAO> {
+        return Observable.create { [weak self] emitter in
+            guard let diary = self?.context.object(with: id) as? DiaryDAO else {
+                return Disposables.create()
+            }
 
-        return context.object(with: id) as? DiaryDAO
+            emitter.onNext(diary)
+            emitter.onCompleted()
+
+            return Disposables.create()
+        }
     }
 
-    func fetchAllEntities() throws -> [DiaryDAO] {
-        let request = DiaryDAO.fetchRequest()
-        return try context.fetch(request)
+    func fetchAllEntities() -> Observable<[DiaryDAO]> {
+        return Observable.create { [weak self] emitter in
+            let request = DiaryDAO.fetchRequest()
+
+            guard let diaries = try? self?.context.fetch(request) else {
+                return Disposables.create()
+            }
+
+            emitter.onNext(diaries)
+            emitter.onCompleted()
+
+            return Disposables.create()
+        }
     }
 
     func fetchObjectID(with id: UUID) -> NSManagedObjectID? {
@@ -71,8 +89,6 @@ final class CoreDataManager: CoreDataManageable {
 
         object.setValue(title, forKey: CoreDataNamespace.title)
         object.setValue(body, forKey: CoreDataNamespace.body)
-        object.setValue(weatherMain, forKey: "weatherMain")
-        object.setValue(weatherIcon, forKey: "weatherIcon")
         try saveContext()
     }
 
