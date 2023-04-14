@@ -1,0 +1,37 @@
+//
+//  HomeViewModel.swift
+//  Diary
+//
+//  Created by 정선아 on 2023/03/29.
+//
+
+import Foundation
+import RxSwift
+
+final class HomeViewModel {
+    struct Input {
+        var didEnterView: Observable<Void>
+    }
+
+    struct Output {
+        var diaryList: Observable<[Diary]>
+    }
+
+    private let diaryUseCase: DiaryUseCaseType
+
+    init(diaryUseCase: DiaryUseCaseType) {
+        self.diaryUseCase = diaryUseCase
+    }
+
+    func transform(input: Input) -> Output {
+        let diaryList = input.didEnterView
+            .withUnretained(self)
+            .flatMap { owner, _ in
+                owner
+                    .diaryUseCase
+                    .fetch()
+            }
+
+        return Output(diaryList: diaryList)
+    }
+}
