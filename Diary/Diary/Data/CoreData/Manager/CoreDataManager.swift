@@ -31,19 +31,50 @@ final class CoreDataManager: CoreDataManageable {
 
     private init() { }
 
-    func saveContext() throws {
+    private func saveContext() {
         if context.hasChanges {
-            try context.save()
+            do {
+                try context.save()
+            } catch {
+                print(error.localizedDescription)
+            }
         }
     }
 
-    func insert(with id: UUID) throws {
-        guard let diaryEntity = diaryEntity else { return }
+    private func generateRequest(by id: UUID) -> NSFetchRequest<DiaryDAO> {
+        let request: NSFetchRequest<DiaryDAO> = DiaryDAO.fetchRequest()
+        let predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        request.returnsObjectsAsFaults = false
+        request.predicate = predicate
+        return request
+    }
 
-        let managedObject = NSManagedObject(entity: diaryEntity, insertInto: context)
-        managedObject.setValue(id, forKey: CoreDataNamespace.id)
-        managedObject.setValue(Date(), forKey: CoreDataNamespace.createdAt)
-        try saveContext()
+    private func fetchResult(from request: NSFetchRequest<DiaryDAO>) -> DiaryDAO? {
+        guard let fetchResult = try? context.fetch(request),
+              let diaryDAO = fetchResult.first
+        else {
+            return nil
+        }
+        return diaryDAO
+    }
+
+    func create(with diary: Diary) {
+        let request = generateRequest(by: diary.id)
+
+        if let objectToUpdate = fetchResult(from: request) {
+            objectToUpdate.title = diary.title
+            objectToUpdate.body = diary.body
+            objectToUpdate.image = diary.image
+        } else {
+            let entity = DiaryDAO(context: context)
+            entity.id = diary.id
+            entity.title = diary.title
+            entity.body = diary.body
+            entity.image = diary.image
+            entity.createdAt = diary.createdAt
+        }
+
+        saveContext()
     }
 
     func fetch(with id: NSManagedObjectID) -> Observable<DiaryDAO> {
@@ -82,30 +113,33 @@ final class CoreDataManager: CoreDataManageable {
         return result?.first?.objectID
     }
 
-    func update(objectID: NSManagedObjectID?, title: String?, body: String?, weatherMain: String?, weatherIcon: String?) throws {
+    func update(objectID: NSManagedObjectID?, title: String?, body: String?, image: Data?) throws {
         guard let objectID = objectID else { return }
 
         guard let object = context.object(with: objectID) as? DiaryDAO else { return }
 
         object.setValue(title, forKey: CoreDataNamespace.title)
         object.setValue(body, forKey: CoreDataNamespace.body)
-        try saveContext()
+        object.setValue(image, forKey: CoreDataNamespace.image)
+        
+        saveContext()
     }
 
-    func delete(with id: NSManagedObjectID?) throws {
-        guard let id = id else { return }
+    func delete(with diary: Diary) {
+        let request = generateRequest(by: diary.id)
+        guard let objectToDelete = fetchResult(from: request) else { return }
+        context.delete(objectToDelete)
 
-        let object = context.object(with: id)
-        context.delete(object)
-        try saveContext()
+        saveContext()
     }
 
     private enum CoreDataNamespace {
         static let id = "id"
         static let title = "title"
         static let body = "body"
+        static let image = "image"
         static let createdAt = "createdAt"
-        static let diary = "Diary"
+        static let diary = "DiaryDAO"
         static let regex = "id == %@"
         static let loadFailure = "코어 데이터 로드 실패"
     }

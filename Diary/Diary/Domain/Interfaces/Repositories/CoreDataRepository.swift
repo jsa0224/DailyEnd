@@ -9,7 +9,9 @@ import Foundation
 import RxSwift
 
 protocol CoreDataRepository {
+    func save(_ diary: Diary)
     func fetchDiaryList() -> Observable<[Diary]>
+    func delete(_ diary: Diary)
 }
 
 
