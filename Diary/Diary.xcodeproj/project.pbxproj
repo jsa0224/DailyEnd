@@ -114,6 +114,7 @@
 		AE12018F29DC56F900EBD14B /* CommonView */ = {
 			isa = PBXGroup;
 			children = (
+				AEA8BB8C29F6C18F00B50AA8 /* Alert */,
 				AE12018E29DC564900EBD14B /* Cell */,
 			);
 			path = CommonView;
@@ -195,6 +196,22 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		AEA8BB8529F64D5D00B50AA8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AEA8BB8629F64D7500B50AA8 /* DateFormatter.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		AEA8BB8C29F6C18F00B50AA8 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				AEA8BB8D29F6C19F00B50AA8 /* AlertActionType.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		AEC65EC729C098C8006E8177 = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +286,7 @@
 		AEF1120A29E7176200DEC8D8 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				AEA8BB8529F64D5D00B50AA8 /* Common */,
 				AEF1120B29E7177300DEC8D8 /* Extension */,
 			);
 			path = Util;
@@ -413,6 +431,7 @@
 				AEF1120D29E7179800DEC8D8 /* Reactive.swift in Sources */,
 				AE85BFA029D46A67002FD898 /* CoreDataRepository.swift in Sources */,
 				AE85BFA429D4733D002FD898 /* DiaryRepository.swift in Sources */,
+				AEA8BB8E29F6C19F00B50AA8 /* AlertActionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
