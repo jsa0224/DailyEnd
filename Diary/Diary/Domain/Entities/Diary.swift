@@ -12,5 +12,5 @@ struct Diary: Hashable {
     var title: String
     var body: String
     let createdAt: Date
-    let image: Data
+    var image: Data
 }
