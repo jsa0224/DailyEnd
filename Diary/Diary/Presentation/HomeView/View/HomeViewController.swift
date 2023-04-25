@@ -35,9 +35,16 @@ final class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
         configureHierarchy()
         configureDataSource()
         bind()
+    }
+
+    private func configureUI() {
+        let image = UIImage(named: "logoImage")
+        navigationItem.titleView = UIImageView(image: image)
+        self.view.backgroundColor = UIColor(named: "mainColor")
     }
 
     private func bind() {
@@ -67,9 +74,10 @@ extension HomeViewController {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
                                               heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
 
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalHeight(0.09))
+                                               heightDimension: .fractionalHeight(0.5))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
@@ -84,7 +92,9 @@ extension HomeViewController {
         guard let collectionView = collectionView else {
             return
         }
+
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.backgroundColor = UIColor(named: "mainColor")
         self.view.addSubview(collectionView)
     }
 
