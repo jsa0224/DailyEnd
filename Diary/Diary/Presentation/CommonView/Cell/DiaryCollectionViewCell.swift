@@ -11,18 +11,9 @@ import RxSwift
 final class DiaryCollectionViewCell: UICollectionViewCell {
     private var viewModel: DiaryCellViewModel?
     private var disposeBag = DisposeBag()
-
-    private let mainStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.axis = .vertical
-        stackView.spacing = 8
-        stackView.distribution = .fill
-        return stackView
-    }()
-
     private let topStackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.spacing = 4
         stackView.distribution = .fill
@@ -38,28 +29,22 @@ final class DiaryCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
-    private let deleteButton: UIButton = {
-        let button = UIButton()
-
-        return button
-    }()
-
     private let diaryImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
 
     private let loadingView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView()
-
         view.contentMode = .scaleAspectFill
-
         return view
     }()
 
     private let bottomStackView: UIStackView = {
         let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 4
         stackView.distribution = .fill
@@ -71,16 +56,19 @@ final class DiaryCollectionViewCell: UICollectionViewCell {
 
         label.textAlignment = .center
         label.font = UIFont.preferredFont(forTextStyle: .title3)
-
         return label
     }()
 
     private let bodyTextView: UITextView = {
         let textView = UITextView()
-        textView.layer.borderWidth = 1
-        textView.layer.cornerRadius = 5
-        textView.textColor = .systemGray3
+        textView.textColor = .black
         textView.font = UIFont.preferredFont(forTextStyle: .body)
+        textView.textContainerInset = UIEdgeInsets(top: 8,
+                                                   left: 16,
+                                                   bottom: 8,
+                                                   right: 8)
+        textView.keyboardDismissMode = .onDrag
+        textView.setContentHuggingPriority(.init(1), for: .vertical)
         return textView
     }()
 
@@ -126,7 +114,7 @@ final class DiaryCollectionViewCell: UICollectionViewCell {
             .diaryItem
             .observe(on: MainScheduler.instance)
             .map { $0.createdAt }
-            .bind(to: bodyTextView.rx.text)
+            .bind(to: dateLabel.rx.text)
             .disposed(by: disposeBag)
 
         output?
@@ -138,29 +126,37 @@ final class DiaryCollectionViewCell: UICollectionViewCell {
     }
 
     private func configureLayout() {
-        mainStackView.addArrangedSubview(topStackView)
-        mainStackView.addArrangedSubview(loadingView)
-        mainStackView.addArrangedSubview(diaryImageView)
-        mainStackView.addArrangedSubview(bottomStackView)
+        contentView.addSubview(topStackView)
+//        contentView.addSubview(deleteButton)
+        contentView.addSubview(diaryImageView)
+        contentView.addSubview(bottomStackView)
 
         topStackView.addArrangedSubview(dateLabel)
-        topStackView.addArrangedSubview(deleteButton)
 
         bottomStackView.addArrangedSubview(titleLabel)
         bottomStackView.addArrangedSubview(bodyTextView)
 
         NSLayoutConstraint.activate([
-            mainStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor),
-            mainStackView.trailingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.trailingAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
+            topStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            topStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            topStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            topStackView.bottomAnchor.constraint(equalTo: diaryImageView.topAnchor, constant: -4),
 
-            loadingView.heightAnchor.constraint(equalToConstant: 200),
-            loadingView.widthAnchor.constraint(equalToConstant: 300),
+            diaryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            diaryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            diaryImageView.bottomAnchor.constraint(equalTo: bottomStackView.topAnchor, constant: -8),
+            diaryImageView.widthAnchor.constraint(equalToConstant: contentView.bounds.width),
+            diaryImageView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.65),
 
-            diaryImageView.heightAnchor.constraint(equalToConstant: 200),
-            diaryImageView.widthAnchor.constraint(equalToConstant: 300)
+            bottomStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            bottomStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            bottomStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
+
+        contentView.backgroundColor = .white
+        contentView.layer.cornerRadius = 16
+        contentView.clipsToBounds = true
+        contentView.systemLayoutSizeFitting(.init(width: self.bounds.width, height: self.bounds.height))
     }
 
 }
