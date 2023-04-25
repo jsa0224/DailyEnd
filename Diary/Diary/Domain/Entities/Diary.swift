@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct Diary {
+struct Diary: Hashable {
     let id: UUID
     var title: String
     var body: String
     let createdAt: Date
+    var image: Data
 }

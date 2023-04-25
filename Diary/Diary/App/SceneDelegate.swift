@@ -21,7 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
 
-        let mainViewController = ViewController()
+        let coreDataManager = CoreDataManager.shared
+        let repository = DiaryRepository(coreDataManager: coreDataManager)
+        let useCase = DefaultDiaryUseCase(diaryRepository: repository)
+        let viewModel = HomeViewModel(diaryUseCase: useCase)
+
+        let mainViewController = HomeViewController(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: mainViewController)
 
         window?.rootViewController = navigationController

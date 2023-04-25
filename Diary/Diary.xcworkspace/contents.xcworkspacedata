@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/puccav/Desktop/yagom/&#x1105;&#x1175;&#x1111;&#x1162;&#x11a8;&#x1110;&#x1169;&#x1105;&#x1175;&#x11bc;/ios-diary-RxSwift/Diary/Diary/Model/DiaryDAO+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/puccav/Desktop/yagom/&#x1105;&#x1175;&#x1111;&#x1162;&#x11a8;&#x1110;&#x1169;&#x1105;&#x1175;&#x11bc;/ios-diary-RxSwift/Diary/Diary/Model/DiaryDAO+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:Diary.xcodeproj">
    </FileRef>
    <FileRef
