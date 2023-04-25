@@ -15,10 +15,18 @@ final class DiaryRepository: CoreDataRepository {
         self.coreDataManager = coreDataManager
     }
 
+    func save(_ diary: Diary) {
+        coreDataManager.create(with: diary)
+    }
+
     func fetchDiaryList() -> Observable<[Diary]> {
         return coreDataManager.fetchAllEntities()
             .map {
                 $0.map { $0.toDomain() }
             }
+    }
+
+    func delete(_ diary: Diary) {
+        coreDataManager.delete(with: diary)
     }
 }
