@@ -20,7 +20,7 @@ struct DiaryCellItem {
     }
 
     var createdAt: String {
-        return diary.createdAt.formatted()
+        return DateFormatterManager().formatDate(diary.createdAt)
     }
 
     var image: UIImage {
