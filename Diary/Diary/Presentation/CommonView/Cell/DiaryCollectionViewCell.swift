@@ -20,8 +20,8 @@ final class DiaryCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
 
-    private let dateLabel: UILabel = {
-        let label = UILabel()
+    private let dateLabel: TitleLabel = {
+        let label = TitleLabel()
 
         label.textAlignment = .left
         label.font = UIFont.preferredFont(forTextStyle: .title2)
@@ -51,10 +51,9 @@ final class DiaryCollectionViewCell: UICollectionViewCell {
         return stackView
     }()
 
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-
-        label.textAlignment = .center
+    private let titleLabel: TitleLabel = {
+        let label = TitleLabel()
+        label.textAlignment = .left
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         return label
     }()

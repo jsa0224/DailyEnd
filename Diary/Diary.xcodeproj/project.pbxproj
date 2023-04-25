@@ -14,6 +14,9 @@
 		AE85BFA029D46A67002FD898 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85BF9F29D46A67002FD898 /* CoreDataRepository.swift */; };
 		AE85BFA229D46B03002FD898 /* DiaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85BFA129D46B03002FD898 /* DiaryUseCase.swift */; };
 		AE85BFA429D4733D002FD898 /* DiaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85BFA329D4733D002FD898 /* DiaryRepository.swift */; };
+		AEA8BB8729F64D7500B50AA8 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8629F64D7500B50AA8 /* DateFormatter.swift */; };
+		AEA8BB8929F65A3900B50AA8 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8829F65A3900B50AA8 /* TitleLabel.swift */; };
+		AEA8BB8E29F6C19F00B50AA8 /* AlertActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8D29F6C19F00B50AA8 /* AlertActionType.swift */; };
 		AEC65ED429C098C8006E8177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED329C098C8006E8177 /* AppDelegate.swift */; };
 		AEC65ED629C098C8006E8177 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED529C098C8006E8177 /* SceneDelegate.swift */; };
 		AEC65ED829C098C8006E8177 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED729C098C8006E8177 /* HomeViewController.swift */; };
@@ -38,6 +41,9 @@
 		AE85BF9F29D46A67002FD898 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		AE85BFA129D46B03002FD898 /* DiaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryUseCase.swift; sourceTree = "<group>"; };
 		AE85BFA329D4733D002FD898 /* DiaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRepository.swift; sourceTree = "<group>"; };
+		AEA8BB8629F64D7500B50AA8 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		AEA8BB8829F65A3900B50AA8 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		AEA8BB8D29F6C19F00B50AA8 /* AlertActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionType.swift; sourceTree = "<group>"; };
 		AEC65ED029C098C8006E8177 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC65ED329C098C8006E8177 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEC65ED529C098C8006E8177 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +113,7 @@
 				AE12018C29DC553300EBD14B /* DiaryCollectionViewCell.swift */,
 				AE12019029DC572500EBD14B /* DiaryCellItem.swift */,
 				AE12019229DC57E700EBD14B /* DiaryCellViewModel.swift */,
+				AEA8BB8829F65A3900B50AA8 /* TitleLabel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -238,9 +245,7 @@
 				AEEF09A329C09DC40029CC46 /* Presentation */,
 				AEE5A9A229D4189800902999 /* Data */,
 				AEF1120A29E7176200DEC8D8 /* Util */,
-				AEC65EDF29C098C9006E8177 /* Assets.xcassets */,
-				AEC65EE129C098C9006E8177 /* LaunchScreen.storyboard */,
-				AEC65EE429C098C9006E8177 /* Info.plist */,
+				AEF1120E29EA833A00DEC8D8 /* Resource */,
 				AEC65EDC29C098C8006E8177 /* DiaryDAO.xcdatamodeld */,
 			);
 			path = Diary;
@@ -298,6 +303,16 @@
 				AEF1120C29E7179800DEC8D8 /* Reactive.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		AEF1120E29EA833A00DEC8D8 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				AEC65EDF29C098C9006E8177 /* Assets.xcassets */,
+				AEC65EE129C098C9006E8177 /* LaunchScreen.storyboard */,
+				AEC65EE429C098C9006E8177 /* Info.plist */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -427,6 +442,7 @@
 				AEC65ED429C098C8006E8177 /* AppDelegate.swift in Sources */,
 				AEC65ED629C098C8006E8177 /* SceneDelegate.swift in Sources */,
 				AEC65EDE29C098C8006E8177 /* DiaryDAO.xcdatamodeld in Sources */,
+				AEA8BB8929F65A3900B50AA8 /* TitleLabel.swift in Sources */,
 				AEF1120929E5584200DEC8D8 /* DiaryDAO+CoreDataProperties.swift in Sources */,
 				AEE5A9A429D418AD00902999 /* HomeViewModel.swift in Sources */,
 				AEF1120D29E7179800DEC8D8 /* Reactive.swift in Sources */,
@@ -573,7 +589,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Diary/Info.plist;
+				INFOPLIST_FILE = Diary/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -600,7 +616,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Diary/Info.plist;
+				INFOPLIST_FILE = Diary/Resource/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
