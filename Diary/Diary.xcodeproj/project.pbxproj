@@ -27,6 +27,9 @@
 		AEC65EDE29C098C8006E8177 /* DiaryDAO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AEC65EDC29C098C8006E8177 /* DiaryDAO.xcdatamodeld */; };
 		AEC65EE029C098C9006E8177 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEC65EDF29C098C9006E8177 /* Assets.xcassets */; };
 		AEC65EE329C098C9006E8177 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEC65EE129C098C9006E8177 /* LaunchScreen.storyboard */; };
+		AEE1402A29FA4EC90070E2C3 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1402929FA4EC90070E2C3 /* AlertManager.swift */; };
+		AEE1402D29FA61290070E2C3 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1402C29FA61290070E2C3 /* MockData.swift */; };
+		AEE1402F29FA6EC80070E2C3 /* DiarySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1402E29FA6EC80070E2C3 /* DiarySection.swift */; };
 		AEE5A9A429D418AD00902999 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE5A9A329D418AD00902999 /* HomeViewModel.swift */; };
 		AEEF099C29C09BA00029CC46 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEF099B29C09BA00029CC46 /* Diary.swift */; };
 		AEEF099F29C09C400029CC46 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEF099E29C09C400029CC46 /* CoreDataManager.swift */; };
@@ -124,6 +127,7 @@
 				AE12018C29DC553300EBD14B /* DiaryCollectionViewCell.swift */,
 				AE12019229DC57E700EBD14B /* DiaryCellViewModel.swift */,
 				AEA8BB8829F65A3900B50AA8 /* TitleLabel.swift */,
+				AEE1402E29FA6EC80070E2C3 /* DiarySection.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";

@@ -14,14 +14,14 @@ final class DiaryCellViewModel {
     }
 
     struct Output {
-        var diaryItem: Observable<DiaryCellItem>
+        var diaryItem: Observable<DiaryItem>
     }
 
     func transform(input: Input) -> Output {
         let diary = input.didEnterCell
             .withUnretained(self)
             .map { owner, diary in
-                DiaryCellItem(diary: diary)
+                DiaryItem(diary: diary)
             }
 
         return Output(diaryItem: diary)
