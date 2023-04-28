@@ -11,6 +11,8 @@ import RxSwift
 protocol CoreDataRepository {
     func save(_ diary: Diary)
     func fetchDiaryList() -> Observable<[Diary]>
+    func fetchDiary(with id: UUID) -> Observable<Diary>
+    func update(_ diary: Diary)
     func delete(_ diary: Diary)
 }
 

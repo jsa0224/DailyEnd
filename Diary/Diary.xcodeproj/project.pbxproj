@@ -17,6 +17,10 @@
 		AEA8BB8729F64D7500B50AA8 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8629F64D7500B50AA8 /* DateFormatter.swift */; };
 		AEA8BB8929F65A3900B50AA8 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8829F65A3900B50AA8 /* TitleLabel.swift */; };
 		AEA8BB8E29F6C19F00B50AA8 /* AlertActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8D29F6C19F00B50AA8 /* AlertActionType.swift */; };
+		AEA8BB9029F8F3B700B50AA8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8F29F8F3B700B50AA8 /* DetailViewController.swift */; };
+		AEA8BB9229F8F3D800B50AA8 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB9129F8F3D800B50AA8 /* DetailViewModel.swift */; };
+		AEA8BB9929F8F73C00B50AA8 /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB9829F8F73C00B50AA8 /* CoreDataError.swift */; };
+		AEA8BB9D29F8FCC100B50AA8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB9C29F8FCC100B50AA8 /* DetailView.swift */; };
 		AEC65ED429C098C8006E8177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED329C098C8006E8177 /* AppDelegate.swift */; };
 		AEC65ED629C098C8006E8177 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED529C098C8006E8177 /* SceneDelegate.swift */; };
 		AEC65ED829C098C8006E8177 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED729C098C8006E8177 /* HomeViewController.swift */; };
@@ -44,6 +48,10 @@
 		AEA8BB8629F64D7500B50AA8 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		AEA8BB8829F65A3900B50AA8 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
 		AEA8BB8D29F6C19F00B50AA8 /* AlertActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionType.swift; sourceTree = "<group>"; };
+		AEA8BB8F29F8F3B700B50AA8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		AEA8BB9129F8F3D800B50AA8 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		AEA8BB9829F8F73C00B50AA8 /* CoreDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataError.swift; sourceTree = "<group>"; };
+		AEA8BB9C29F8FCC100B50AA8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		AEC65ED029C098C8006E8177 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC65ED329C098C8006E8177 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEC65ED529C098C8006E8177 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,6 +210,7 @@
 			children = (
 				AEEF099E29C09C400029CC46 /* CoreDataManager.swift */,
 				AEEF09A029C09D870029CC46 /* CoreDataManageable.swift */,
+				AEA8BB9829F8F73C00B50AA8 /* CoreDataError.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -434,6 +443,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEEF099F29C09C400029CC46 /* CoreDataManager.swift in Sources */,
+				AEA8BB9D29F8FCC100B50AA8 /* DetailView.swift in Sources */,
+				AEA8BB9929F8F73C00B50AA8 /* CoreDataError.swift in Sources */,
+				AEE1402D29FA61290070E2C3 /* MockData.swift in Sources */,
 				AEEF09A129C09D870029CC46 /* CoreDataManageable.swift in Sources */,
 				AE12018D29DC553300EBD14B /* DiaryCollectionViewCell.swift in Sources */,
 				AE12019129DC572500EBD14B /* DiaryCellItem.swift in Sources */,

@@ -11,6 +11,7 @@ import RxSwift
 
 final class CoreDataManager: CoreDataManageable {
     static let shared = CoreDataManager()
+
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: CoreDataNamespace.diary)
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -77,13 +78,16 @@ final class CoreDataManager: CoreDataManageable {
         saveContext()
     }
 
-    func fetch(with id: NSManagedObjectID) -> Observable<DiaryDAO> {
+    func fetch(with id: UUID) -> Observable<DiaryDAO> {
         return Observable.create { [weak self] emitter in
-            guard let diary = self?.context.object(with: id) as? DiaryDAO else {
+            guard let request = self?.generateRequest(by: id),
+                  let fetchResult = self?.fetchResult(from: request)
+            else {
+                emitter.onError(CoreDataError.readFail)
                 return Disposables.create()
             }
 
-            emitter.onNext(diary)
+            emitter.onNext(fetchResult)
             emitter.onCompleted()
 
             return Disposables.create()
@@ -113,15 +117,17 @@ final class CoreDataManager: CoreDataManageable {
         return result?.first?.objectID
     }
 
-    func update(objectID: NSManagedObjectID?, title: String?, body: String?, image: Data?) throws {
-        guard let objectID = objectID else { return }
+    func update(with diary: Diary) {
+        let request = generateRequest(by: diary.id)
 
-        guard let object = context.object(with: objectID) as? DiaryDAO else { return }
+        guard let objectToUpdate = fetchResult(from: request) else { return }
 
-        object.setValue(title, forKey: CoreDataNamespace.title)
-        object.setValue(body, forKey: CoreDataNamespace.body)
-        object.setValue(image, forKey: CoreDataNamespace.image)
-        
+        objectToUpdate.id = diary.id
+        objectToUpdate.title = diary.title
+        objectToUpdate.body = diary.body
+        objectToUpdate.createdAt = diary.createdAt
+        objectToUpdate.image = diary.image
+
         saveContext()
     }
 
