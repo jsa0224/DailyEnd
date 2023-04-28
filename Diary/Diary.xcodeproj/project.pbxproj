@@ -52,6 +52,9 @@
 		AEC65EDF29C098C9006E8177 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEC65EE229C098C9006E8177 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEC65EE429C098C9006E8177 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEE1402929FA4EC90070E2C3 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		AEE1402C29FA61290070E2C3 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		AEE1402E29FA6EC80070E2C3 /* DiarySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiarySection.swift; sourceTree = "<group>"; };
 		AEE5A9A329D418AD00902999 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		AEEF099B29C09BA00029CC46 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		AEEF099E29C09C400029CC46 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -215,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				AEA8BB8D29F6C19F00B50AA8 /* AlertActionType.swift */,
+				AEE1402929FA4EC90070E2C3 /* AlertManager.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -442,6 +446,7 @@
 				AEC65ED429C098C8006E8177 /* AppDelegate.swift in Sources */,
 				AEC65ED629C098C8006E8177 /* SceneDelegate.swift in Sources */,
 				AEC65EDE29C098C8006E8177 /* DiaryDAO.xcdatamodeld in Sources */,
+				AEE1402A29FA4EC90070E2C3 /* AlertManager.swift in Sources */,
 				AEA8BB8929F65A3900B50AA8 /* TitleLabel.swift in Sources */,
 				AEF1120929E5584200DEC8D8 /* DiaryDAO+CoreDataProperties.swift in Sources */,
 				AEE5A9A429D418AD00902999 /* HomeViewModel.swift in Sources */,
