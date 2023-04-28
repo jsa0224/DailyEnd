@@ -320,6 +320,14 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
+		AEE1402B29FA61180070E2C3 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				AEE1402C29FA61290070E2C3 /* MockData.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		AEE5A9A229D4189800902999 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,6 +359,7 @@
 		AEF1120A29E7176200DEC8D8 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				AEE1402B29FA61180070E2C3 /* Test */,
 				AEA8BB8529F64D5D00B50AA8 /* Common */,
 				AEF1120B29E7177300DEC8D8 /* Extension */,
 			);
