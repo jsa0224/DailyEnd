@@ -26,6 +26,15 @@ final class DiaryRepository: CoreDataRepository {
             }
     }
 
+    func fetchDiary(with id: UUID) -> Observable<Diary> {
+        return coreDataManager.fetch(with: id)
+            .map { $0.toDomain() }
+    }
+
+    func update(_ diary: Diary) {
+        coreDataManager.update(with: diary)
+    }
+
     func delete(_ diary: Diary) {
         coreDataManager.delete(with: diary)
     }

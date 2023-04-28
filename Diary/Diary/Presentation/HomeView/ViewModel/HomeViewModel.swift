@@ -18,12 +18,16 @@ final class HomeViewModel {
     }
 
     private let diaryUseCase: DiaryUseCaseType
+    private let mockData = MockData.diary
 
     init(diaryUseCase: DiaryUseCaseType) {
         self.diaryUseCase = diaryUseCase
     }
 
     func transform(input: Input) -> Output {
+        diaryUseCase
+            .save(mockData)
+        
         let diaryList = input.didEnterView
             .withUnretained(self)
             .flatMap { owner, _ in

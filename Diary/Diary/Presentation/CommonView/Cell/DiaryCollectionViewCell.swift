@@ -9,6 +9,10 @@ import UIKit
 import RxSwift
 
 final class DiaryCollectionViewCell: UICollectionViewCell {
+    static var identifier: String {
+        return String(describing: self)
+    }
+    
     private var viewModel: DiaryCellViewModel?
     private var disposeBag = DisposeBag()
     private let topStackView: UIStackView = {
@@ -61,6 +65,7 @@ final class DiaryCollectionViewCell: UICollectionViewCell {
     private let bodyTextView: UITextView = {
         let textView = UITextView()
         textView.textColor = .black
+        textView.isEditable = false
         textView.font = UIFont.preferredFont(forTextStyle: .body)
         textView.textContainerInset = UIEdgeInsets(top: 8,
                                                    left: 16,

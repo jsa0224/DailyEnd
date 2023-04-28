@@ -1,5 +1,5 @@
 //
-//  DiaryCellItem.swift
+//  DiaryItem.swift
 //  Diary
 //
 //  Created by 정선아 on 2023/04/04.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct DiaryCellItem {
+struct DiaryItem {
     private let diary: Diary
 
     var title: String {

@@ -8,19 +8,23 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 final class HomeViewController: UIViewController {
-    typealias DataSource = UICollectionViewDiffableDataSource<Section, Diary>
-    typealias SnapShot = NSDiffableDataSourceSnapshot<Section, Diary>
+    typealias DataSource = RxCollectionViewSectionedReloadDataSource<DiarySection>
 
     private let viewModel: HomeViewModel
     private var disposeBag = DisposeBag()
     private var collectionView: UICollectionView?
-    private var dataSource: DataSource?
-    private var snapshot = SnapShot()
+    private var dataSource = DataSource { _, collectionView, indexPath, item in
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DiaryCollectionViewCell.identifier,
+                                                            for: indexPath) as? DiaryCollectionViewCell else {
+            return DiaryCollectionViewCell()
+        }
 
-    enum Section {
-        case main
+        cell.bind(item)
+
+        return cell
     }
 
     init(viewModel: HomeViewModel, disposeBag: DisposeBag = DisposeBag()) {
@@ -53,19 +57,32 @@ final class HomeViewController: UIViewController {
         let input = HomeViewModel.Input(didEnterView: didEnterView)
         let output = viewModel.transform(input: input)
 
+        guard let collectionView = collectionView else {
+            return
+        }
+
         output
             .diaryList
             .withUnretained(self)
-            .bind(onNext: { owner, diaries in
-                owner.makeSnapshot(diaryData: diaries)
+            .map { owner, diaries in
+                [DiarySection(items: diaries)]
+            }
+            .bind(to: collectionView.rx.items(dataSource: dataSource))
+            .disposed(by: disposeBag)
+
+        collectionView.rx.modelSelected(Diary.self)
+            .observe(on: MainScheduler.instance)
+            .withUnretained(self)
+            .bind(onNext: { owner, diary in
+                let coreDataManager = CoreDataManager.shared
+                let diaryRepository = DiaryRepository(coreDataManager: coreDataManager)
+                let diaryUseCase = DefaultDiaryUseCase(diaryRepository: diaryRepository)
+                let detailViewModel = DetailViewModel(diaryUseCase: diaryUseCase,
+                                                      diary: diary)
+                let detailViewController = DetailViewController(viewModel: detailViewModel)
+                owner.navigationController?.pushViewController(detailViewController, animated: true)
             })
             .disposed(by: disposeBag)
-    }
-
-    private func makeSnapshot(diaryData: [Diary]) {
-        snapshot.appendSections([.main])
-        snapshot.appendItems(diaryData)
-        dataSource?.apply(snapshot, animatingDifferences: false)
     }
 }
 
@@ -103,13 +120,7 @@ extension HomeViewController {
             return
         }
 
-        let cellRegistration = UICollectionView.CellRegistration<DiaryCollectionViewCell, Diary> { (cell, indexPath, diary) in
-            cell.bind(diary)
-        }
-
-        dataSource = DataSource(collectionView: collectionView) {
-            (collectionView: UICollectionView, indexPath: IndexPath, identifier: Diary) -> UICollectionViewCell? in
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: identifier)
-        }
+        collectionView.register(DiaryCollectionViewCell.self,
+                                forCellWithReuseIdentifier: DiaryCollectionViewCell.identifier)
     }
 }

@@ -28,6 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let mainViewController = HomeViewController(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: mainViewController)
+        navigationController.navigationBar.scrollEdgeAppearance =
+               navigationController.navigationBar.standardAppearance
 
         window?.rootViewController = navigationController
         window?.rootViewController?.view.backgroundColor = .white
