@@ -44,7 +44,7 @@ final class CoreDataManager: CoreDataManageable {
 
     private func generateRequest(by id: UUID) -> NSFetchRequest<DiaryDAO> {
         let request: NSFetchRequest<DiaryDAO> = DiaryDAO.fetchRequest()
-        let predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        let predicate = NSPredicate(format: CoreDataNamespace.regex, id as CVarArg)
         request.returnsObjectsAsFaults = false
         request.predicate = predicate
         return request
@@ -148,5 +148,6 @@ final class CoreDataManager: CoreDataManageable {
         static let diary = "DiaryDAO"
         static let regex = "id == %@"
         static let loadFailure = "코어 데이터 로드 실패"
+        static let emptyString = ""
     }
 }
