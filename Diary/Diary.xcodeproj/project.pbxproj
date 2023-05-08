@@ -338,6 +338,31 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		AEE140302A00C2CC0070E2C3 /* RecordView */ = {
+			isa = PBXGroup;
+			children = (
+				AEE140322A00C2E50070E2C3 /* ViewModel */,
+				AEE140312A00C2DF0070E2C3 /* View */,
+			);
+			path = RecordView;
+			sourceTree = "<group>";
+		};
+		AEE140312A00C2DF0070E2C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AEE140352A00C3140070E2C3 /* RecordViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AEE140322A00C2E50070E2C3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AEE140332A00C2FF0070E2C3 /* RecordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		AEE5A9A229D4189800902999 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,14 +542,17 @@
 				AEEF09A129C09D870029CC46 /* CoreDataManageable.swift in Sources */,
 				AE12018D29DC553300EBD14B /* DiaryCollectionViewCell.swift in Sources */,
 				AEE1402F29FA6EC80070E2C3 /* DiarySection.swift in Sources */,
+				AEE1403A2A00E8130070E2C3 /* RecordView.swift in Sources */,
 				AE12019129DC572500EBD14B /* DiaryItem.swift in Sources */,
 				AE85BFA229D46B03002FD898 /* DiaryUseCase.swift in Sources */,
+				AEE140362A00C3140070E2C3 /* RecordViewController.swift in Sources */,
 				AEA8BB8729F64D7500B50AA8 /* DateFormatter.swift in Sources */,
 				AEA8BB9029F8F3B700B50AA8 /* DetailViewController.swift in Sources */,
 				AEC65ED829C098C8006E8177 /* HomeViewController.swift in Sources */,
 				AEEF099C29C09BA00029CC46 /* Diary.swift in Sources */,
 				AEA8BB9229F8F3D800B50AA8 /* DetailViewModel.swift in Sources */,
 				AE12019329DC57E700EBD14B /* DiaryCellViewModel.swift in Sources */,
+				AEE140342A00C2FF0070E2C3 /* RecordViewModel.swift in Sources */,
 				AEF1120829E5584200DEC8D8 /* DiaryDAO+CoreDataClass.swift in Sources */,
 				AEC65ED429C098C8006E8177 /* AppDelegate.swift in Sources */,
 				AEC65ED629C098C8006E8177 /* SceneDelegate.swift in Sources */,
