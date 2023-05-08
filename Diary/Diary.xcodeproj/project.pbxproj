@@ -30,6 +30,10 @@
 		AEE1402A29FA4EC90070E2C3 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1402929FA4EC90070E2C3 /* AlertManager.swift */; };
 		AEE1402D29FA61290070E2C3 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1402C29FA61290070E2C3 /* MockData.swift */; };
 		AEE1402F29FA6EC80070E2C3 /* DiarySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE1402E29FA6EC80070E2C3 /* DiarySection.swift */; };
+		AEE140342A00C2FF0070E2C3 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE140332A00C2FF0070E2C3 /* RecordViewModel.swift */; };
+		AEE140362A00C3140070E2C3 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE140352A00C3140070E2C3 /* RecordViewController.swift */; };
+		AEE140382A00C7E20070E2C3 /* TapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE140372A00C7E20070E2C3 /* TapBarController.swift */; };
+		AEE1403A2A00E8130070E2C3 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE140392A00E8130070E2C3 /* RecordView.swift */; };
 		AEE5A9A429D418AD00902999 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE5A9A329D418AD00902999 /* HomeViewModel.swift */; };
 		AEEF099C29C09BA00029CC46 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEF099B29C09BA00029CC46 /* Diary.swift */; };
 		AEEF099F29C09C400029CC46 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEF099E29C09C400029CC46 /* CoreDataManager.swift */; };
@@ -66,6 +70,10 @@
 		AEE1402929FA4EC90070E2C3 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		AEE1402C29FA61290070E2C3 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		AEE1402E29FA6EC80070E2C3 /* DiarySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiarySection.swift; sourceTree = "<group>"; };
+		AEE140332A00C2FF0070E2C3 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		AEE140352A00C3140070E2C3 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		AEE140372A00C7E20070E2C3 /* TapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarController.swift; sourceTree = "<group>"; };
+		AEE140392A00E8130070E2C3 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		AEE5A9A329D418AD00902999 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		AEEF099B29C09BA00029CC46 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
 		AEEF099E29C09C400029CC46 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -265,7 +273,9 @@
 		AEA8BB9A29F8FC8400B50AA8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AEA8BB9C29F8FCC100B50AA8 /* DetailView.swift */,
+				AEA8BB9C29F8FCC100B50AA8 /* DiaryView.swift */,
+				AEE140372A00C7E20070E2C3 /* TapBarController.swift */,
+				AEE140392A00E8130070E2C3 /* RecordView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -352,6 +362,7 @@
 				AE12018F29DC56F900EBD14B /* CommonView */,
 				AE85BF9929D468C9002FD898 /* HomeView */,
 				AEA8BB9329F8F4D700B50AA8 /* DetailView */,
+				AEE140302A00C2CC0070E2C3 /* RecordView */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -499,7 +510,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEEF099F29C09C400029CC46 /* CoreDataManager.swift in Sources */,
-				AEA8BB9D29F8FCC100B50AA8 /* DetailView.swift in Sources */,
+				AEE140382A00C7E20070E2C3 /* TapBarController.swift in Sources */,
+				AEA8BB9D29F8FCC100B50AA8 /* DiaryView.swift in Sources */,
 				AEA8BB9929F8F73C00B50AA8 /* CoreDataError.swift in Sources */,
 				AEE1402D29FA61290070E2C3 /* MockData.swift in Sources */,
 				AEEF09A129C09D870029CC46 /* CoreDataManageable.swift in Sources */,
