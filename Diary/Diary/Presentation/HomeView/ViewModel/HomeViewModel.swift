@@ -25,9 +25,6 @@ final class HomeViewModel {
     }
 
     func transform(input: Input) -> Output {
-        diaryUseCase
-            .save(mockData)
-        
         let diaryList = input.didEnterView
             .withUnretained(self)
             .flatMap { owner, _ in

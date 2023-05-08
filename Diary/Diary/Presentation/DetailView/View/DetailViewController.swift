@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 final class DetailViewController: UIViewController {
-    private let diaryDetailView = DetailView()
+    private let diaryDetailView = DiaryView()
     private let viewModel: DetailViewModel
     private var disposeBag = DisposeBag()
     private let deleteButton: UIBarButtonItem = {

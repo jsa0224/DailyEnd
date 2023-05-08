@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleLabel: UILabel {
+class DateLabel: UILabel {
     private var padding = UIEdgeInsets(top: 8.0, left: 16.0, bottom: 8.0, right: 8.0)
 
     convenience init(padding: UIEdgeInsets = UIEdgeInsets(top: 8.0, left: 16.0, bottom: 8.0, right: 8.0)) {

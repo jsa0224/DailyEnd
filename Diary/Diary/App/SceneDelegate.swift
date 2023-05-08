@@ -21,17 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
 
-        let coreDataManager = CoreDataManager.shared
-        let repository = DiaryRepository(coreDataManager: coreDataManager)
-        let useCase = DefaultDiaryUseCase(diaryRepository: repository)
-        let viewModel = HomeViewModel(diaryUseCase: useCase)
+        let tabBarController = TabBarController()
 
-        let mainViewController = HomeViewController(viewModel: viewModel)
-        let navigationController = UINavigationController(rootViewController: mainViewController)
-        navigationController.navigationBar.scrollEdgeAppearance =
-               navigationController.navigationBar.standardAppearance
-
-        window?.rootViewController = navigationController
+        window?.rootViewController = tabBarController
         window?.rootViewController?.view.backgroundColor = .white
         window?.makeKeyAndVisible()
     }
