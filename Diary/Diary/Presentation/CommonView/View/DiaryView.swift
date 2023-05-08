@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailView: UIView {
+final class DiaryView: UIView {
     private let mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -17,20 +17,19 @@ class DetailView: UIView {
         return stackView
     }()
     
-    private let dateLabel: TitleLabel = {
-        let label = TitleLabel()
-
+    private(set) var dateLabel: DateLabel = {
+        let label = DateLabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = UIFont.preferredFont(forTextStyle: .title2)
-
         return label
     }()
 
-    private let diaryImageView: UIImageView = {
+    private(set) var diaryImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.backgroundColor = UIColor(named: "selectedColor")
         return imageView
     }()
 
@@ -50,20 +49,24 @@ class DetailView: UIView {
         return stackView
     }()
 
-    private let titleLabel: TitleLabel = {
-        let label = TitleLabel()
-        label.textAlignment = .left
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.setContentCompressionResistancePriority(.required, for: .vertical)
-        return label
+    private(set) var titleTextView: UITextView = {
+        let textView = UITextView()
+        textView.isScrollEnabled = false
+        textView.setContentCompressionResistancePriority(.required, for: .vertical)
+        textView.font = UIFont.preferredFont(forTextStyle: .title2)
+        textView.textContainerInset = UIEdgeInsets(top: 8,
+                                                   left: 7,
+                                                   bottom: 8,
+                                                   right: 8)
+        return textView
     }()
 
-    private let bodyTextView: UITextView = {
+    private(set) var bodyTextView: UITextView = {
         let textView = UITextView()
         textView.textColor = .black
         textView.font = UIFont.preferredFont(forTextStyle: .body)
         textView.textContainerInset = UIEdgeInsets(top: 8,
-                                                   left: 16,
+                                                   left: 8,
                                                    bottom: 8,
                                                    right: 8)
         textView.keyboardDismissMode = .onDrag
@@ -88,7 +91,7 @@ class DetailView: UIView {
         mainStackView.addArrangedSubview(diaryImageView)
         mainStackView.addArrangedSubview(textStackView)
 
-        textStackView.addArrangedSubview(titleLabel)
+        textStackView.addArrangedSubview(titleTextView)
         textStackView.addArrangedSubview(bodyTextView)
 
         NSLayoutConstraint.activate([
@@ -104,7 +107,12 @@ class DetailView: UIView {
     func configureView(_ item: DiaryItem) {
         dateLabel.text = item.createdAt
         diaryImageView.image = item.image
-        titleLabel.text = item.title
+        titleTextView.text = item.title
         bodyTextView.text = item.body
+    }
+
+    func isEditingTextView(_ boolean: Bool) {
+        titleTextView.isEditable = boolean
+        bodyTextView.isEditable = boolean
     }
 }
