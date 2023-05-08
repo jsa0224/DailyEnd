@@ -15,7 +15,7 @@
 		AE85BFA229D46B03002FD898 /* DiaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85BFA129D46B03002FD898 /* DiaryUseCase.swift */; };
 		AE85BFA429D4733D002FD898 /* DiaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85BFA329D4733D002FD898 /* DiaryRepository.swift */; };
 		AEA8BB8729F64D7500B50AA8 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8629F64D7500B50AA8 /* DateFormatter.swift */; };
-		AEA8BB8929F65A3900B50AA8 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8829F65A3900B50AA8 /* TitleLabel.swift */; };
+		AEA8BB8929F65A3900B50AA8 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8829F65A3900B50AA8 /* DateLabel.swift */; };
 		AEA8BB8E29F6C19F00B50AA8 /* AlertActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8D29F6C19F00B50AA8 /* AlertActionType.swift */; };
 		AEA8BB9029F8F3B700B50AA8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8F29F8F3B700B50AA8 /* DetailViewController.swift */; };
 		AEA8BB9229F8F3D800B50AA8 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB9129F8F3D800B50AA8 /* DetailViewModel.swift */; };
@@ -53,7 +53,7 @@
 		AE85BFA129D46B03002FD898 /* DiaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryUseCase.swift; sourceTree = "<group>"; };
 		AE85BFA329D4733D002FD898 /* DiaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRepository.swift; sourceTree = "<group>"; };
 		AEA8BB8629F64D7500B50AA8 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
-		AEA8BB8829F65A3900B50AA8 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		AEA8BB8829F65A3900B50AA8 /* DateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
 		AEA8BB8D29F6C19F00B50AA8 /* AlertActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionType.swift; sourceTree = "<group>"; };
 		AEA8BB8F29F8F3B700B50AA8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AEA8BB9129F8F3D800B50AA8 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 			children = (
 				AE12018C29DC553300EBD14B /* DiaryCollectionViewCell.swift */,
 				AE12019229DC57E700EBD14B /* DiaryCellViewModel.swift */,
-				AEA8BB8829F65A3900B50AA8 /* TitleLabel.swift */,
+				AEA8BB8829F65A3900B50AA8 /* DateLabel.swift */,
 				AEE1402E29FA6EC80070E2C3 /* DiarySection.swift */,
 			);
 			path = Cell;
@@ -558,7 +558,7 @@
 				AEC65ED629C098C8006E8177 /* SceneDelegate.swift in Sources */,
 				AEC65EDE29C098C8006E8177 /* DiaryDAO.xcdatamodeld in Sources */,
 				AEE1402A29FA4EC90070E2C3 /* AlertManager.swift in Sources */,
-				AEA8BB8929F65A3900B50AA8 /* TitleLabel.swift in Sources */,
+				AEA8BB8929F65A3900B50AA8 /* DateLabel.swift in Sources */,
 				AEF1120929E5584200DEC8D8 /* DiaryDAO+CoreDataProperties.swift in Sources */,
 				AEE5A9A429D418AD00902999 /* HomeViewModel.swift in Sources */,
 				AEF1120D29E7179800DEC8D8 /* Reactive.swift in Sources */,
