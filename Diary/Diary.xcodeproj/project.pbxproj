@@ -443,6 +443,8 @@
 			isa = PBXGroup;
 			children = (
 				AEF1120C29E7179800DEC8D8 /* Reactive.swift */,
+				AEB042292A0A4BA20039B269 /* UISearchTextField.swift */,
+				AEA160152A0E6839006E7FF5 /* Date.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
