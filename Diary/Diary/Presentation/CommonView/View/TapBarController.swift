@@ -29,16 +29,17 @@ final class TabBarController: UITabBarController {
                                                                                   createdAt: Date(),
                                                                                   dateComponents: Date().convertDateToString(),
                                                                                   image: Data()))
+        let searchViewModel = SearchViewModel(diaryUseCase: useCase)
 
         let homeNavigationController = UINavigationController(rootViewController: HomeViewController(viewModel: homeViewModel))
-
         let recordNavigationController = UINavigationController(rootViewController: RecordViewController(viewModel: recordViewModel))
+        let searchNavigationController = UINavigationController(rootViewController: SearchViewController(viewModel: searchViewModel))
 
         homeNavigationController.navigationBar.scrollEdgeAppearance = homeNavigationController.navigationBar.standardAppearance
-
         recordNavigationController.navigationBar.scrollEdgeAppearance = recordNavigationController.navigationBar.standardAppearance
+        searchNavigationController.navigationBar.scrollEdgeAppearance = searchNavigationController.navigationBar.standardAppearance
 
-        viewControllers = [homeNavigationController, recordNavigationController]
+        viewControllers = [homeNavigationController, recordNavigationController, searchNavigationController]
 
         let homeImage = UIImage(systemName: "house")
         let homeTabBarItem = UITabBarItem(title: "home",
@@ -50,8 +51,14 @@ final class TabBarController: UITabBarController {
                                             image: pencilImage,
                                             tag: 1)
 
+        let searchImage = UIImage(systemName: "magnifyingglass")
+        let searchTabBarItem = UITabBarItem(title: "search",
+                                            image: searchImage,
+                                            tag: 2)
+
         homeNavigationController.tabBarItem = homeTabBarItem
         recordNavigationController.tabBarItem = recordTabBarItem
+        searchNavigationController.tabBarItem = searchTabBarItem
     }
 
 }

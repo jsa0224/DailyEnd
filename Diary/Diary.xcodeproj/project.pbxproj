@@ -25,6 +25,9 @@
 		AEA8BB9229F8F3D800B50AA8 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB9129F8F3D800B50AA8 /* DetailViewModel.swift */; };
 		AEA8BB9929F8F73C00B50AA8 /* CoreDataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB9829F8F73C00B50AA8 /* CoreDataError.swift */; };
 		AEA8BB9D29F8FCC100B50AA8 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB9C29F8FCC100B50AA8 /* DiaryView.swift */; };
+		AEB042262A08ED420039B269 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB042252A08ED420039B269 /* SearchViewModel.swift */; };
+		AEB042282A08ED550039B269 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB042272A08ED550039B269 /* SearchViewController.swift */; };
+		AEB0422A2A0A4BA20039B269 /* UISearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB042292A0A4BA20039B269 /* UISearchTextField.swift */; };
 		AEC65ED429C098C8006E8177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED329C098C8006E8177 /* AppDelegate.swift */; };
 		AEC65ED629C098C8006E8177 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED529C098C8006E8177 /* SceneDelegate.swift */; };
 		AEC65ED829C098C8006E8177 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED729C098C8006E8177 /* HomeViewController.swift */; };
@@ -65,6 +68,9 @@
 		AEA8BB9129F8F3D800B50AA8 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		AEA8BB9829F8F73C00B50AA8 /* CoreDataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataError.swift; sourceTree = "<group>"; };
 		AEA8BB9C29F8FCC100B50AA8 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
+		AEB042252A08ED420039B269 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		AEB042272A08ED550039B269 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AEB042292A0A4BA20039B269 /* UISearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchTextField.swift; sourceTree = "<group>"; };
 		AEC65ED029C098C8006E8177 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC65ED329C098C8006E8177 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEC65ED529C098C8006E8177 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -293,6 +299,31 @@
 			path = Item;
 			sourceTree = "<group>";
 		};
+		AEB042222A08ECFB0039B269 /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				AEB042242A08ED2C0039B269 /* ViewModel */,
+				AEB042232A08ED230039B269 /* View */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		AEB042232A08ED230039B269 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AEB042272A08ED550039B269 /* SearchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AEB042242A08ED2C0039B269 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AEB042252A08ED420039B269 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		AEC65EC729C098C8006E8177 = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +424,7 @@
 				AE85BF9929D468C9002FD898 /* HomeView */,
 				AEA8BB9329F8F4D700B50AA8 /* DetailView */,
 				AEE140302A00C2CC0070E2C3 /* RecordView */,
+				AEB042222A08ECFB0039B269 /* SearchView */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -551,12 +583,19 @@
 				AE12019129DC572500EBD14B /* DiaryItem.swift in Sources */,
 				AE85BFA229D46B03002FD898 /* DiaryUseCase.swift in Sources */,
 				AEE140362A00C3140070E2C3 /* RecordViewController.swift in Sources */,
+				AEA1601D2A111751006E7FF5 /* NoticeView.swift in Sources */,
+				AEA1601A2A0F91FF006E7FF5 /* DiaryDAO+CoreDataClass.swift in Sources */,
+				AEB042282A08ED550039B269 /* SearchViewController.swift in Sources */,
 				AEA8BB8729F64D7500B50AA8 /* DateFormatter.swift in Sources */,
 				AEA8BB9029F8F3B700B50AA8 /* DetailViewController.swift in Sources */,
 				AEC65ED829C098C8006E8177 /* HomeViewController.swift in Sources */,
+				AEA160162A0E6839006E7FF5 /* Date.swift in Sources */,
 				AEEF099C29C09BA00029CC46 /* Diary.swift in Sources */,
 				AEA8BB9229F8F3D800B50AA8 /* DetailViewModel.swift in Sources */,
 				AE12019329DC57E700EBD14B /* DiaryCellViewModel.swift in Sources */,
+				AEB0422A2A0A4BA20039B269 /* UISearchTextField.swift in Sources */,
+				AEA1601B2A0F91FF006E7FF5 /* DiaryDAO+CoreDataProperties.swift in Sources */,
+				AEB042262A08ED420039B269 /* SearchViewModel.swift in Sources */,
 				AEE140342A00C2FF0070E2C3 /* RecordViewModel.swift in Sources */,
 				AEC65ED429C098C8006E8177 /* AppDelegate.swift in Sources */,
 				AEC65ED629C098C8006E8177 /* SceneDelegate.swift in Sources */,
