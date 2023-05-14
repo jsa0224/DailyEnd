@@ -17,7 +17,7 @@ class SearchViewController: UIViewController {
     private var disposeBag = DisposeBag()
     private let searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchBar.placeholder = "검색할 날짜를 선택해주세요."
+        searchController.searchBar.placeholder = Namespace.placeholder
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.showsCancelButton = false
         return searchController
@@ -61,9 +61,9 @@ class SearchViewController: UIViewController {
     }
 
     private func configureUI() {
-        let image = UIImage(named: "logoImage")
+        let image = UIImage(named: Image.logo)
         navigationItem.titleView = UIImageView(image: image)
-        view.backgroundColor = UIColor(named: "mainColor")
+        view.backgroundColor = UIColor(named: Color.main)
         navigationItem.searchController = searchController
         searchController.searchBar.searchTextField.setDatePicker(datePicker)
     }
@@ -82,7 +82,6 @@ class SearchViewController: UIViewController {
         let searchDiary = datePicker.rx.value
             .changed
             .asObservable()
-            .debug("String")
             .map { $0.convertDateToString() }
 
         let input = SearchViewModel.Input(didEndSearching: searchDiary)
@@ -103,16 +102,32 @@ class SearchViewController: UIViewController {
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
     }
+
+    private enum Namespace {
+        static let placeholder = "검색할 날짜를 선택해주세요."
+        static let confirmActionTitle = "확인"
+        static let alertTitle = "해당 날짜의 일기가 존재하지 않습니다."
+    }
+
+    private enum Layout {
+        static let fractionalWidth: CGFloat = 1.0
+        static let fractionalHeight: CGFloat = 1.0
+        static let groupSizeFractionalHeight: CGFloat = 0.5
+        static let contentInsetsTop: CGFloat = 16
+        static let contentInsetsLeading: CGFloat = 16
+        static let contentInsetsTrailing: CGFloat = 16
+        static let contentInsetsBottom: CGFloat = 16
+    }
 }
 
 extension SearchViewController {
     func configureAlert() {
-        let confirmAction = UIAlertAction(title: "확인",
+        let confirmAction = UIAlertAction(title: Namespace.confirmActionTitle,
                                           style: .default)
 
         let alert = AlertManager.shared
             .setType(.alert)
-            .setTitle("해당 날짜의 일기가 존재하지 않습니다.")
+            .setTitle(Namespace.alertTitle)
             .setActions([confirmAction])
             .apply()
         self.present(alert, animated: true)
@@ -122,13 +137,16 @@ extension SearchViewController {
 
 extension SearchViewController {
     private func createListLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                              heightDimension: .fractionalHeight(1.0))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(Layout.fractionalWidth),
+                                              heightDimension: .fractionalHeight(Layout.fractionalHeight))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16)
+        item.contentInsets = NSDirectionalEdgeInsets(top: Layout.contentInsetsTop,
+                                                     leading: Layout.contentInsetsLeading,
+                                                     bottom: Layout.contentInsetsBottom,
+                                                     trailing: Layout.contentInsetsTrailing)
 
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                               heightDimension: .fractionalHeight(0.5))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(Layout.fractionalWidth),
+                                               heightDimension: .fractionalHeight(Layout.groupSizeFractionalHeight))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 
         let section = NSCollectionLayoutSection(group: group)
@@ -145,7 +163,7 @@ extension SearchViewController {
         }
 
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = UIColor(named: "mainColor")
+        collectionView.backgroundColor = UIColor(named: Color.main)
         self.view.addSubview(collectionView)
     }
 

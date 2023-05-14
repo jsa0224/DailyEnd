@@ -38,12 +38,12 @@ final class RecordViewModel {
             .withUnretained(self)
             .map { owner, data in
                 let dataToSave = Diary(id: UUID(),
-                                       title: data.0 ?? "",
-                                       body: data.1 ?? "",
+                                       title: data.0 ?? Description.emptyString,
+                                       body: data.1 ?? Description.emptyString,
                                        createdAt: Date(),
                                        dateComponents: Date().convertDateToString(),
                                        image: data.2 ?? Data())
-                if dataToSave.title != "" || dataToSave.body != "" {
+                if dataToSave.title != Description.emptyString || dataToSave.body != Description.emptyString {
                     owner.diaryUseCase.save(dataToSave)
                 }
             }

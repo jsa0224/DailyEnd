@@ -165,7 +165,5 @@ final class CoreDataManager: CoreDataManageable {
         static let diary = "DiaryDAO"
         static let idRegex = "id == %@"
         static let dateRegex = "dateComponents == %@"
-        static let loadFailure = "코어 데이터 로드 실패"
-        static let emptyString = ""
     }
 }

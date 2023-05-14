@@ -14,22 +14,22 @@ final class DetailViewController: UIViewController {
     private let viewModel: DetailViewModel
     private var disposeBag = DisposeBag()
     private let deleteButton: UIBarButtonItem = {
-        let deleteImage = UIImage(systemName: "trash.circle")
+        let deleteImage = UIImage(systemName: Namespace.deleteImage)
         let barButtonItem = UIBarButtonItem(image: deleteImage,
                                             style: .plain,
                                             target: nil,
                                             action: nil)
-        barButtonItem.tintColor = UIColor(named: "mainColor")
+        barButtonItem.tintColor = UIColor(named: Color.main)
         return barButtonItem
     }()
 
     private let backButton: UIBarButtonItem = {
-        let modifyImage = UIImage(systemName: "arrow.backward")
+        let modifyImage = UIImage(systemName: Namespace.modifyImage)
         let barButtonItem = UIBarButtonItem(image: modifyImage,
                                             style: .plain,
                                             target: nil,
                                             action: nil)
-        barButtonItem.tintColor = UIColor(named: "mainColor")
+        barButtonItem.tintColor = UIColor(named: Color.main)
         return barButtonItem
     }()
 
@@ -50,24 +50,28 @@ final class DetailViewController: UIViewController {
     }
 
     private func configureUI() {
-        let image = UIImage(named: "logoImage")
+        let image = UIImage(named: Image.logo)
         navigationItem.titleView = UIImageView(image: image)
         navigationItem.leftBarButtonItem = backButton
         navigationItem.rightBarButtonItem = deleteButton
 
-        view.backgroundColor = UIColor(named: "mainColor")
+        view.backgroundColor = UIColor(named: Color.main)
 
         view.addSubview(diaryDetailView)
 
         NSLayoutConstraint.activate([
-            diaryDetailView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            diaryDetailView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            diaryDetailView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            diaryDetailView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8)
+            diaryDetailView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+                                                 constant: Layout.topAnchorConstant),
+            diaryDetailView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+                                                     constant: Layout.leadingAnchorConstant),
+            diaryDetailView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                                                      constant: Layout.trailingAnchorConstant),
+            diaryDetailView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                                    constant: Layout.bottomAnchorConstant)
         ])
 
         diaryDetailView.backgroundColor = .white
-        diaryDetailView.layer.cornerRadius = 16
+        diaryDetailView.layer.cornerRadius = Layout.cornerRadius
         diaryDetailView.clipsToBounds = true
     }
 
@@ -119,18 +123,34 @@ final class DetailViewController: UIViewController {
             .disposed(by: disposeBag)
     }
 
+    private enum Layout {
+        static let topAnchorConstant: CGFloat = 16
+        static let leadingAnchorConstant: CGFloat = 8
+        static let trailingAnchorConstant: CGFloat = -8
+        static let bottomAnchorConstant: CGFloat = -8
+        static let cornerRadius: CGFloat = 16
+    }
+
+    private enum Namespace {
+        static let deleteImage = "trash.circle"
+        static let modifyImage = "arrow.backward"
+        static let cancelActionTitle = "취소"
+        static let deleteActionTitle = "삭제"
+        static let alertTitle = "해당 일기장을 삭제하시겠습니까?"
+        static let alertMessage = "삭제할 경우, 데이터가 영구적으로 삭제됩니다."
+    }
 }
 
 extension DetailViewController {
     func showDeleteAlert() -> Observable<AlertActionType> {
         return Observable.create { [weak self] emitter in
-            let cancelAction = UIAlertAction(title: "취소",
+            let cancelAction = UIAlertAction(title: Namespace.cancelActionTitle,
                                              style: .cancel) { _ in
                 emitter.onNext(.cancel)
                 emitter.onCompleted()
             }
 
-            let deleteAction = UIAlertAction(title: "삭제",
+            let deleteAction = UIAlertAction(title: Namespace.deleteActionTitle,
                                              style: .destructive) { _ in
                 emitter.onNext(.delete)
                 emitter.onCompleted()
@@ -138,8 +158,8 @@ extension DetailViewController {
 
             let alert = AlertManager.shared
                 .setType(.alert)
-                .setTitle("해당 일기장을 삭제하시겠습니까?")
-                .setMessage("삭제할 경우, 데이터가 영구적으로 삭제됩니다.")
+                .setTitle(Namespace.alertTitle)
+                .setMessage(Namespace.alertMessage)
                 .setActions([cancelAction, deleteAction])
                 .apply()
 

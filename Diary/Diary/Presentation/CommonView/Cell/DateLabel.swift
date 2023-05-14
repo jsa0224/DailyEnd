@@ -8,9 +8,15 @@
 import UIKit
 
 class DateLabel: UILabel {
-    private var padding = UIEdgeInsets(top: 8.0, left: 16.0, bottom: 8.0, right: 8.0)
+    private var padding = UIEdgeInsets(top: Layout.textContainerInsetTop,
+                                       left: Layout.textContainerInsetLeft,
+                                       bottom: Layout.textContainerInsetBottom,
+                                       right: Layout.textContainerInsetRight)
 
-    convenience init(padding: UIEdgeInsets = UIEdgeInsets(top: 8.0, left: 16.0, bottom: 8.0, right: 8.0)) {
+    convenience init(padding: UIEdgeInsets = UIEdgeInsets(top: Layout.textContainerInsetTop,
+                                                          left: Layout.textContainerInsetLeft,
+                                                          bottom: Layout.textContainerInsetBottom,
+                                                          right: Layout.textContainerInsetRight)) {
         self.init()
         self.padding = padding
     }
@@ -25,5 +31,12 @@ class DateLabel: UILabel {
         contentSize.width += padding.left + padding.right
 
         return contentSize
+    }
+
+    private enum Layout {
+        static let textContainerInsetTop: CGFloat = 8
+        static let textContainerInsetLeft: CGFloat = 16
+        static let textContainerInsetRight: CGFloat = 8
+        static let textContainerInsetBottom: CGFloat = 8
     }
 }

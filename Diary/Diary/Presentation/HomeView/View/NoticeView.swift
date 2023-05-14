@@ -14,8 +14,8 @@ final class NoticeView: UIView {
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.text = "저장된 일기가 없습니다." + "\n" + "작성 페이지에서 일기를 추가할 수 있습니다."
-        label.numberOfLines = 0
+        label.text = Namespace.noneDiaryText
+        label.numberOfLines = Layout.numberOfLines
         return label
     }()
 
@@ -39,8 +39,17 @@ final class NoticeView: UIView {
             initialNoticeLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
 
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor(named: "selectedColor")?.cgColor
+        self.layer.borderWidth = Layout.borderWidth
+        self.layer.borderColor = UIColor(named: Color.selected)?.cgColor
         self.translatesAutoresizingMaskIntoConstraints = false
+    }
+
+    private enum Namespace {
+        static let noneDiaryText = "저장된 일기가 없습니다." + "\n" + "작성 페이지에서 일기를 추가할 수 있습니다."
+    }
+
+    private enum Layout {
+        static let numberOfLines = 0
+        static let borderWidth: CGFloat = 2
     }
 }

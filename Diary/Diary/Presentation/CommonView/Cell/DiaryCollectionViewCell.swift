@@ -82,10 +82,13 @@ final class DiaryCollectionViewCell: UICollectionViewCell {
         ])
 
         contentView.backgroundColor = .white
-        contentView.layer.cornerRadius = 16
+        contentView.layer.cornerRadius = Layout.cornerRadius
         contentView.clipsToBounds = true
         contentView.systemLayoutSizeFitting(.init(width: self.bounds.width, height: self.bounds.height))
         dairyView.isEditingTextView(false)
     }
 
+    private enum Layout {
+        static let cornerRadius: CGFloat = 16
+    }
 }

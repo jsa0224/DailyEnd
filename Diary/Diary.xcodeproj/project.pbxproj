@@ -18,6 +18,7 @@
 		AEA1601A2A0F91FF006E7FF5 /* DiaryDAO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA160182A0F91FF006E7FF5 /* DiaryDAO+CoreDataClass.swift */; };
 		AEA1601B2A0F91FF006E7FF5 /* DiaryDAO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA160192A0F91FF006E7FF5 /* DiaryDAO+CoreDataProperties.swift */; };
 		AEA1601D2A111751006E7FF5 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA1601C2A111751006E7FF5 /* NoticeView.swift */; };
+		AEA160202A113632006E7FF5 /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA1601F2A113632006E7FF5 /* Namespace.swift */; };
 		AEA8BB8729F64D7500B50AA8 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8629F64D7500B50AA8 /* DateFormatter.swift */; };
 		AEA8BB8929F65A3900B50AA8 /* DateLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8829F65A3900B50AA8 /* DateLabel.swift */; };
 		AEA8BB8E29F6C19F00B50AA8 /* AlertActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA8BB8D29F6C19F00B50AA8 /* AlertActionType.swift */; };
@@ -60,6 +61,7 @@
 		AEA160182A0F91FF006E7FF5 /* DiaryDAO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryDAO+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		AEA160192A0F91FF006E7FF5 /* DiaryDAO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiaryDAO+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		AEA1601C2A111751006E7FF5 /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		AEA1601F2A113632006E7FF5 /* Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
 		AEA8BB8629F64D7500B50AA8 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		AEA8BB8829F65A3900B50AA8 /* DateLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateLabel.swift; sourceTree = "<group>"; };
 		AEA8BB8D29F6C19F00B50AA8 /* AlertActionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertActionType.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				AEA8BB8629F64D7500B50AA8 /* DateFormatter.swift */,
+				AEA1601F2A113632006E7FF5 /* Namespace.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				AEC65ED829C098C8006E8177 /* HomeViewController.swift in Sources */,
 				AEA160162A0E6839006E7FF5 /* Date.swift in Sources */,
 				AEEF099C29C09BA00029CC46 /* Diary.swift in Sources */,
+				AEA160202A113632006E7FF5 /* Namespace.swift in Sources */,
 				AEA8BB9229F8F3D800B50AA8 /* DetailViewModel.swift in Sources */,
 				AE12019329DC57E700EBD14B /* DiaryCellViewModel.swift in Sources */,
 				AEB0422A2A0A4BA20039B269 /* UISearchTextField.swift in Sources */,

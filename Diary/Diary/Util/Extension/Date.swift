@@ -11,8 +11,12 @@ extension Date {
     func convertDateToString() -> String {
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year, .month, .day], from: self)
-        let dateToString = "\(components.year ?? 0)\(components.month ?? 0)\(components.day ?? 0)"
+        let dateToString = "\(components.year ?? Namespace.zero)\(components.month ?? Namespace.zero)\(components.day ?? Namespace.zero)"
 
         return dateToString
+    }
+
+    private enum Namespace {
+        static let zero = 0
     }
 }

@@ -13,7 +13,7 @@ import CoreData
 extension DiaryDAO {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<DiaryDAO> {
-        return NSFetchRequest<DiaryDAO>(entityName: "DiaryDAO")
+        return NSFetchRequest<DiaryDAO>(entityName: Namespace.entityName)
     }
 
     @NSManaged public var body: String?
@@ -23,6 +23,9 @@ extension DiaryDAO {
     @NSManaged public var title: String?
     @NSManaged public var dateComponents: String?
 
+    private enum Namespace {
+        static let entityName = "DiaryDAO"
+    }
 }
 
 extension DiaryDAO : Identifiable {
@@ -32,10 +35,10 @@ extension DiaryDAO : Identifiable {
 extension DiaryDAO {
     func toDomain() -> Diary {
         let diary = Diary(id: id ?? UUID(),
-                          title: title ?? "",
-                          body: body ?? "",
+                          title: title ?? Description.emptyString,
+                          body: body ?? Description.emptyString,
                           createdAt: createdAt ?? Date(),
-                          dateComponents: dateComponents ?? "",
+                          dateComponents: dateComponents ?? Description.emptyString,
                           image: image ?? Data())
 
         return diary

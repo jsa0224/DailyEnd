@@ -14,9 +14,14 @@ enum CoreDataError: LocalizedError {
     var description: String {
         switch self {
         case .readFail:
-            return "저장소를 불러올 수 없습니다."
+            return ErrorMessage.readFail
         case .saveFail:
-            return "저장소에 저장할 수 없습니다."
+            return ErrorMessage.saveFail
         }
+    }
+
+    private enum ErrorMessage {
+        static let readFail = "저장소를 불러올 수 없습니다."
+        static let saveFail = "저장소에 저장할 수 없습니다."
     }
 }

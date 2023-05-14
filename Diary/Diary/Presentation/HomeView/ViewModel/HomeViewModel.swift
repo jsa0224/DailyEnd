@@ -18,7 +18,6 @@ final class HomeViewModel {
     }
 
     private let diaryUseCase: DiaryUseCaseType
-    private let mockData = MockData.diary
 
     init(diaryUseCase: DiaryUseCaseType) {
         self.diaryUseCase = diaryUseCase

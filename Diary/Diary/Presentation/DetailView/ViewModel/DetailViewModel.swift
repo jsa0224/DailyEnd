@@ -58,8 +58,8 @@ final class DetailViewModel {
             .withUnretained(self)
             .map { owner, data in
                 let updateDiary = Diary(id: self.diary.id,
-                                        title: data.0 ?? "",
-                                        body: data.1 ?? "",
+                                        title: data.0 ?? Description.emptyString,
+                                        body: data.1 ?? Description.emptyString,
                                         createdAt: self.diary.createdAt,
                                         dateComponents: self.diary.dateComponents,
                                         image: self.diary.image)
