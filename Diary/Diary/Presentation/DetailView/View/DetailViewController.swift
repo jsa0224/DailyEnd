@@ -78,7 +78,12 @@ final class DetailViewController: UIViewController {
             .flatMap { owner, _ in
                 self.showDeleteAlert()
             }
-        let didTapBackButton = backButton.rx.tap.asObservable()
+        let didTapBackButton = backButton.rx.tap
+            .withUnretained(self)
+            .map { owner, _ in
+                (owner.diaryDetailView.titleTextView.text,
+                 owner.diaryDetailView.bodyTextView.text)
+            }
 
         let input = DetailViewModel.Input(didShowView: didShowView,
                                           didTapDeleteButton: didTapDeleteButton,
@@ -131,7 +136,7 @@ extension DetailViewController {
                 emitter.onCompleted()
             }
 
-            let alert = AlertBuilder.shared
+            let alert = AlertManager.shared
                 .setType(.alert)
                 .setTitle("해당 일기장을 삭제하시겠습니까?")
                 .setMessage("삭제할 경우, 데이터가 영구적으로 삭제됩니다.")

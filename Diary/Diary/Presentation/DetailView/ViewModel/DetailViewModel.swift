@@ -11,7 +11,7 @@ final class DetailViewModel {
     struct Input {
         let didShowView: Observable<Void>
         let didTapDeleteButton: Observable<AlertActionType>
-        let didTapBackButton: Observable<Void>
+        let didTapBackButton: Observable<(String?, String?)>
     }
 
     struct Output {
@@ -56,10 +56,16 @@ final class DetailViewModel {
 
         let updateToComplete = input.didTapBackButton
             .withUnretained(self)
-            .map { owner, _ in
+            .map { owner, data in
+                let updateDiary = Diary(id: self.diary.id,
+                                        title: data.0 ?? "",
+                                        body: data.1 ?? "",
+                                        createdAt: self.diary.createdAt,
+                                        dateComponents: self.diary.dateComponents,
+                                        image: self.diary.image)
                 owner
                     .diaryUseCase
-                    .update(owner.diary)
+                    .update(updateDiary)
             }
 
         return Output(diaryDetailItem: diaryItem,
