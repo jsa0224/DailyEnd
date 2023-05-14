@@ -67,9 +67,12 @@ final class RecordViewController: UIViewController {
         let didTapSaveButton = saveButton.rx.tap
             .withUnretained(self)
             .map { owner, _ in
-                (owner.recordView.titleTextView.text,
-                 owner.recordView.bodyTextView.text,
-                 owner.recordView.diaryImageView.image?.pngData())
+                if owner.recordView.titleTextView.text == "" || owner.recordView.bodyTextView.text == "" {
+                    self.configureAlert()
+                }
+                return (owner.recordView.titleTextView.text,
+                        owner.recordView.bodyTextView.text,
+                        owner.recordView.diaryImageView.image?.pngData())
             }
 
         let input = RecordViewModel.Input(didShowView: didShowViewEvent,
@@ -90,9 +93,27 @@ final class RecordViewController: UIViewController {
             .observe(on: MainScheduler.instance)
             .withUnretained(self)
             .bind(onNext: { owner, _ in
+                self.recordView.titleTextView.text = nil
+                self.recordView.bodyTextView.text = nil
+                self.recordView.diaryImageView.image = nil
+                self.recordView.isHiddenImage(true)
                 self.tabBarController?.selectedIndex = 0
             })
             .disposed(by: disposeBag)
+    }
+}
+
+extension RecordViewController {
+    func configureAlert() {
+        let confirmAction = UIAlertAction(title: "확인",
+                                          style: .default)
+
+        let alert = AlertManager.shared
+            .setType(.alert)
+            .setTitle("빈 일기장은 저장되지 않습니다.")
+            .setActions([confirmAction])
+            .apply()
+        self.present(alert, animated: true)
     }
 }
 

@@ -41,6 +41,7 @@ final class RecordViewModel {
                                        title: data.0 ?? "",
                                        body: data.1 ?? "",
                                        createdAt: Date(),
+                                       dateComponents: Date().convertDateToString(),
                                        image: data.2 ?? Data())
                 if dataToSave.title != "" || dataToSave.body != "" {
                     owner.diaryUseCase.save(dataToSave)
