@@ -30,6 +30,7 @@ final class DiaryView: UIView {
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = UIColor(named: "selectedColor")
+        imageView.clipsToBounds = true
         return imageView
     }()
 
