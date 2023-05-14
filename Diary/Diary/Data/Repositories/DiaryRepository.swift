@@ -31,6 +31,13 @@ final class DiaryRepository: CoreDataRepository {
             .map { $0.toDomain() }
     }
 
+    func fetchDiary(with dateComponents: String) -> Observable<[Diary]> {
+        return coreDataManager.fetch(with: dateComponents)
+            .map {
+                $0.map { $0.toDomain() }
+            }
+    }
+
     func update(_ diary: Diary) {
         coreDataManager.update(with: diary)
     }

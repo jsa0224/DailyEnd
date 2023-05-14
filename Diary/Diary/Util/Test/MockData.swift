@@ -12,5 +12,6 @@ struct MockData {
                              title: "바다에 놀러옴",
                              body: "히히",
                              createdAt: Date(),
+                             dateComponents: Date().convertDateToString(),
                              image: UIImage(named: "바닷가")?.pngData() ?? Data())
 }

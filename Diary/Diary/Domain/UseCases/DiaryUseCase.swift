@@ -12,6 +12,7 @@ protocol DiaryUseCaseType {
     func save(_ diary: Diary)
     func fetch() -> Observable<[Diary]>
     func fetch(with id: UUID) -> Observable<Diary>
+    func fetch(with dateComponents: String) -> Observable<[Diary]>
     func update(_ diary: Diary)
     func delete(_ diary: Diary)
 }
@@ -33,6 +34,10 @@ final class DefaultDiaryUseCase: DiaryUseCaseType {
 
     func fetch(with id: UUID) -> Observable<Diary> {
         return diaryRepository.fetchDiary(with: id)
+    }
+
+    func fetch(with dateComponents: String) -> Observable<[Diary]> {
+        return diaryRepository.fetchDiary(with: dateComponents)
     }
 
     func update(_ diary: Diary) {

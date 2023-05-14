@@ -27,6 +27,7 @@ final class TabBarController: UITabBarController {
                                                                                   title: "",
                                                                                   body: "",
                                                                                   createdAt: Date(),
+                                                                                  dateComponents: Date().convertDateToString(),
                                                                                   image: Data()))
 
         let homeNavigationController = UINavigationController(rootViewController: HomeViewController(viewModel: homeViewModel))

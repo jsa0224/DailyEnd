@@ -44,7 +44,15 @@ final class CoreDataManager: CoreDataManageable {
 
     private func generateRequest(by id: UUID) -> NSFetchRequest<DiaryDAO> {
         let request: NSFetchRequest<DiaryDAO> = DiaryDAO.fetchRequest()
-        let predicate = NSPredicate(format: CoreDataNamespace.regex, id as CVarArg)
+        let predicate = NSPredicate(format: CoreDataNamespace.idRegex, id as CVarArg)
+        request.returnsObjectsAsFaults = false
+        request.predicate = predicate
+        return request
+    }
+
+    private func generateRequest(by dateComponent: String) -> NSFetchRequest<DiaryDAO> {
+        let request: NSFetchRequest<DiaryDAO> = DiaryDAO.fetchRequest()
+        let predicate = NSPredicate(format: CoreDataNamespace.dateRegex, dateComponent as CVarArg)
         request.returnsObjectsAsFaults = false
         request.predicate = predicate
         return request
@@ -73,6 +81,7 @@ final class CoreDataManager: CoreDataManageable {
             entity.body = diary.body
             entity.image = diary.image
             entity.createdAt = diary.createdAt
+            entity.dateComponents = diary.dateComponents
         }
 
         saveContext()
@@ -82,6 +91,22 @@ final class CoreDataManager: CoreDataManageable {
         return Observable.create { [weak self] emitter in
             guard let request = self?.generateRequest(by: id),
                   let fetchResult = self?.fetchResult(from: request)
+            else {
+                emitter.onError(CoreDataError.readFail)
+                return Disposables.create()
+            }
+
+            emitter.onNext(fetchResult)
+            emitter.onCompleted()
+
+            return Disposables.create()
+        }
+    }
+
+    func fetch(with dateComponents: String) -> Observable<[DiaryDAO]> {
+        return Observable.create { [weak self] emitter in
+            guard let request = self?.generateRequest(by: dateComponents),
+                  let fetchResult = try? self?.context.fetch(request)
             else {
                 emitter.onError(CoreDataError.readFail)
                 return Disposables.create()
@@ -108,15 +133,7 @@ final class CoreDataManager: CoreDataManageable {
             return Disposables.create()
         }
     }
-
-    func fetchObjectID(with id: UUID) -> NSManagedObjectID? {
-        let fetchRequest = DiaryDAO.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: CoreDataNamespace.regex, id.uuidString)
-
-        let result = try? context.fetch(fetchRequest)
-        return result?.first?.objectID
-    }
-
+    
     func update(with diary: Diary) {
         let request = generateRequest(by: diary.id)
 
@@ -146,7 +163,8 @@ final class CoreDataManager: CoreDataManageable {
         static let image = "image"
         static let createdAt = "createdAt"
         static let diary = "DiaryDAO"
-        static let regex = "id == %@"
+        static let idRegex = "id == %@"
+        static let dateRegex = "dateComponents == %@"
         static let loadFailure = "코어 데이터 로드 실패"
         static let emptyString = ""
     }

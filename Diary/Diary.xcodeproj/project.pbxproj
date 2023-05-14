@@ -120,6 +120,7 @@
 		AE12018A29DC54D800EBD14B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AEA1601C2A111751006E7FF5 /* NoticeView.swift */,
 				AEC65ED729C098C8006E8177 /* HomeViewController.swift */,
 			);
 			path = View;
