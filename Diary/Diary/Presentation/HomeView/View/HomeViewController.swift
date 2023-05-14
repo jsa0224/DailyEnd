@@ -26,6 +26,7 @@ final class HomeViewController: UIViewController {
 
         return cell
     }
+    private let noticeView = NoticeView()
 
     init(viewModel: HomeViewModel, disposeBag: DisposeBag = DisposeBag()) {
         self.viewModel = viewModel
@@ -65,7 +66,12 @@ final class HomeViewController: UIViewController {
             .diaryList
             .withUnretained(self)
             .map { owner, diaries in
-                [DiarySection(items: diaries)]
+                if diaries.isEmpty {
+                    self.configureNoticeView()
+                } else {
+                    self.hideNoticeView()
+                }
+                return [DiarySection(items: diaries)]
             }
             .bind(to: collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
@@ -83,6 +89,21 @@ final class HomeViewController: UIViewController {
                 owner.navigationController?.pushViewController(detailViewController, animated: true)
             })
             .disposed(by: disposeBag)
+    }
+
+    private func configureNoticeView() {
+        view.addSubview(noticeView)
+
+        NSLayoutConstraint.activate([
+            noticeView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            noticeView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            noticeView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5),
+            noticeView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.5)
+        ])
+    }
+
+    private func hideNoticeView() {
+        noticeView.removeFromSuperview()
     }
 }
 

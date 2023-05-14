@@ -10,7 +10,7 @@ import RxSwift
 
 final class HomeViewModel {
     struct Input {
-        var didEnterView: Observable<Void>
+        var didShowView: Observable<Void>
     }
 
     struct Output {
@@ -25,7 +25,7 @@ final class HomeViewModel {
     }
 
     func transform(input: Input) -> Output {
-        let diaryList = input.didEnterView
+        let diaryList = input.didShowView
             .withUnretained(self)
             .flatMap { owner, _ in
                 owner
