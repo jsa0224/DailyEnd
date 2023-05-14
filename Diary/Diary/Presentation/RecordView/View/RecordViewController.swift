@@ -14,12 +14,12 @@ final class RecordViewController: UIViewController {
     private let viewModel: RecordViewModel
     private var disposeBag = DisposeBag()
     private let saveButton: UIBarButtonItem = {
-        let saveImage = UIImage(systemName: "checkmark.circle")
+        let saveImage = UIImage(systemName: Namespace.saveImage)
         let barButtonItem = UIBarButtonItem(image: saveImage,
                                             style: .plain,
                                             target: nil,
                                             action: nil)
-        barButtonItem.tintColor = UIColor(named: "mainColor")
+        barButtonItem.tintColor = UIColor(named: Color.main)
         return barButtonItem
     }()
 
@@ -41,23 +41,27 @@ final class RecordViewController: UIViewController {
     }
 
     private func configureUI() {
-        let image = UIImage(named: "logoImage")
+        let image = UIImage(named: Image.logo)
         navigationItem.titleView = UIImageView(image: image)
         navigationItem.rightBarButtonItem = saveButton
         
-        view.backgroundColor = UIColor(named: "mainColor")
+        view.backgroundColor = UIColor(named: Color.main)
 
         view.addSubview(recordView)
 
         NSLayoutConstraint.activate([
-            recordView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-            recordView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
-            recordView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
-            recordView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8)
+            recordView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,
+                                            constant: Layout.topAnchorConstant),
+            recordView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+                                                constant: Layout.leadingAnchorConstant),
+            recordView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                                                 constant: Layout.trailingAnchorConstant),
+            recordView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,
+                                               constant: Layout.bottomAnchorConstant)
         ])
 
         recordView.backgroundColor = .white
-        recordView.layer.cornerRadius = 16
+        recordView.layer.cornerRadius = Layout.cornerRadius
         recordView.clipsToBounds = true
         recordView.isHiddenImage(true)
     }
@@ -67,9 +71,12 @@ final class RecordViewController: UIViewController {
         let didTapSaveButton = saveButton.rx.tap
             .withUnretained(self)
             .map { owner, _ in
-                (owner.recordView.titleTextView.text,
-                 owner.recordView.bodyTextView.text,
-                 owner.recordView.diaryImageView.image?.pngData())
+                if owner.recordView.titleTextView.text == Description.emptyString || owner.recordView.bodyTextView.text == Description.emptyString {
+                    self.configureAlert()
+                }
+                return (owner.recordView.titleTextView.text,
+                        owner.recordView.bodyTextView.text,
+                        owner.recordView.diaryImageView.image?.pngData())
             }
 
         let input = RecordViewModel.Input(didShowView: didShowViewEvent,
@@ -90,9 +97,42 @@ final class RecordViewController: UIViewController {
             .observe(on: MainScheduler.instance)
             .withUnretained(self)
             .bind(onNext: { owner, _ in
-                self.tabBarController?.selectedIndex = 0
+                self.recordView.titleTextView.text = nil
+                self.recordView.bodyTextView.text = nil
+                self.recordView.diaryImageView.image = nil
+                self.recordView.isHiddenImage(true)
+                self.tabBarController?.selectedIndex = Namespace.selectedIndex
             })
             .disposed(by: disposeBag)
+    }
+
+    private enum Layout {
+        static let topAnchorConstant: CGFloat = 8
+        static let leadingAnchorConstant: CGFloat = 8
+        static let trailingAnchorConstant: CGFloat = -8
+        static let bottomAnchorConstant: CGFloat = -8
+        static let cornerRadius: CGFloat = 16
+    }
+
+    private enum Namespace {
+        static let saveImage = "checkmark.circle"
+        static let selectedIndex = 0
+        static let confirmActionTitle = "확인"
+        static let alertTitle = "빈 일기장은 저장되지 않습니다."
+    }
+}
+
+extension RecordViewController {
+    func configureAlert() {
+        let confirmAction = UIAlertAction(title: Namespace.confirmActionTitle,
+                                          style: .default)
+
+        let alert = AlertManager.shared
+            .setType(.alert)
+            .setTitle(Namespace.alertTitle)
+            .setActions([confirmAction])
+            .apply()
+        self.present(alert, animated: true)
     }
 }
 

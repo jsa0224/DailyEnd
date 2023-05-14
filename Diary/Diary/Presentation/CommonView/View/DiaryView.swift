@@ -12,7 +12,7 @@ final class DiaryView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 4
+        stackView.spacing = Layout.spacing
         stackView.distribution = .fill
         return stackView
     }()
@@ -29,7 +29,8 @@ final class DiaryView: UIView {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.backgroundColor = UIColor(named: "selectedColor")
+        imageView.backgroundColor = UIColor(named: Color.selected)
+        imageView.clipsToBounds = true
         return imageView
     }()
 
@@ -44,7 +45,7 @@ final class DiaryView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 4
+        stackView.spacing = Layout.spacing
         stackView.distribution = .fill
         return stackView
     }()
@@ -54,10 +55,10 @@ final class DiaryView: UIView {
         textView.isScrollEnabled = false
         textView.setContentCompressionResistancePriority(.required, for: .vertical)
         textView.font = UIFont.preferredFont(forTextStyle: .title2)
-        textView.textContainerInset = UIEdgeInsets(top: 8,
-                                                   left: 7,
-                                                   bottom: 8,
-                                                   right: 8)
+        textView.textContainerInset = UIEdgeInsets(top: Layout.textContainerInsetTop,
+                                                   left: Layout.textContainerInsetTitleLeft,
+                                                   bottom: Layout.textContainerInsetBottom,
+                                                   right: Layout.textContainerInsetBottom)
         return textView
     }()
 
@@ -65,12 +66,13 @@ final class DiaryView: UIView {
         let textView = UITextView()
         textView.textColor = .black
         textView.font = UIFont.preferredFont(forTextStyle: .body)
-        textView.textContainerInset = UIEdgeInsets(top: 8,
-                                                   left: 8,
-                                                   bottom: 8,
-                                                   right: 8)
+        textView.textContainerInset = UIEdgeInsets(top: Layout.textContainerInsetTop,
+                                                   left: Layout.textContainerInsetLeft,
+                                                   bottom: Layout.textContainerInsetBottom,
+                                                   right: Layout.textContainerInsetBottom)
         textView.keyboardDismissMode = .onDrag
-        textView.setContentHuggingPriority(.init(1), for: .vertical)
+        textView.setContentHuggingPriority(.init(Layout.contentHuggingPriority),
+                                           for: .vertical)
         return textView
     }()
 
@@ -100,7 +102,8 @@ final class DiaryView: UIView {
             mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
 
-            diaryImageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.65),
+            diaryImageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor,
+                                                   multiplier: Layout.multiplier),
         ])
     }
 
@@ -114,5 +117,16 @@ final class DiaryView: UIView {
     func isEditingTextView(_ boolean: Bool) {
         titleTextView.isEditable = boolean
         bodyTextView.isEditable = boolean
+    }
+
+    private enum Layout {
+        static let contentHuggingPriority: Float = 1
+        static let spacing: CGFloat = 4
+        static let textContainerInsetTop: CGFloat = 8
+        static let textContainerInsetLeft: CGFloat = 8
+        static let textContainerInsetTitleLeft: CGFloat = 7
+        static let textContainerInsetRight: CGFloat = 8
+        static let textContainerInsetBottom: CGFloat = 8
+        static let multiplier: CGFloat = 0.65
     }
 }
