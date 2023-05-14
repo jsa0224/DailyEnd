@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-final class AlertBuilder {
+final class AlertManager {
     struct AlertComponents {
         var title: String?
         var message: String?
@@ -16,35 +16,35 @@ final class AlertBuilder {
         var actions: [UIAlertAction] = []
     }
 
-    static private let alertBuilder = AlertBuilder()
+    static private let alertManager = AlertManager()
     static private var components = AlertComponents()
 
-    static var shared: AlertBuilder {
+    static var shared: AlertManager {
         self.components = AlertComponents()
-        return alertBuilder
+        return alertManager
     }
 
     private init() { }
 
-    func setTitle(_ title: String) -> AlertBuilder {
+    func setTitle(_ title: String) -> AlertManager {
         Self.components.title = title
 
         return self
     }
 
-    func setMessage(_ message: String?) -> AlertBuilder {
+    func setMessage(_ message: String?) -> AlertManager {
         Self.components.message = message
 
         return self
     }
 
-    func setType(_ type: UIAlertController.Style) -> AlertBuilder {
+    func setType(_ type: UIAlertController.Style) -> AlertManager {
         Self.components.type = type
 
         return self
     }
 
-    func setActions(_ actions: [UIAlertAction]?) -> AlertBuilder {
+    func setActions(_ actions: [UIAlertAction]?) -> AlertManager {
         guard let actions = actions else { return self }
         actions.forEach { Self.components.actions.append($0) }
 
@@ -53,12 +53,12 @@ final class AlertBuilder {
 
     func apply() -> UIAlertController {
         let alert = UIAlertController(
-            title: AlertBuilder.components.title,
-            message: AlertBuilder.components.message,
-            preferredStyle: AlertBuilder.components.type
+            title: AlertManager.components.title,
+            message: AlertManager.components.message,
+            preferredStyle: AlertManager.components.type
         )
 
-        AlertBuilder
+        AlertManager
             .components
             .actions
             .forEach { alert.addAction($0) }
