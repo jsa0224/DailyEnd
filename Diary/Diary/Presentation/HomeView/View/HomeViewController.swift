@@ -53,9 +53,9 @@ final class HomeViewController: UIViewController {
     }
 
     private func bind() {
-        let didEnterView = self.rx.viewWillAppear.asObservable()
+        let didShowView = self.rx.viewWillAppear.asObservable()
 
-        let input = HomeViewModel.Input(didShowView: didEnterView)
+        let input = HomeViewModel.Input(didShowView: didShowView)
         let output = viewModel.transform(input: input)
 
         guard let collectionView = collectionView else {
