@@ -113,7 +113,7 @@ final class DiaryView: UIView {
     }
 
     func configureView(_ item: DiaryItem) {
-        dateLabel.text = item.createdAt
+        dateLabel.text = item.createdAt.localized
         diaryImageView.image = item.image
         titleTextView.text = item.title
         bodyTextView.text = item.body

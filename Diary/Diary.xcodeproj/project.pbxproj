@@ -11,6 +11,7 @@
 		AE12018D29DC553300EBD14B /* DiaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE12018C29DC553300EBD14B /* DiaryCollectionViewCell.swift */; };
 		AE12019129DC572500EBD14B /* DiaryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE12019029DC572500EBD14B /* DiaryItem.swift */; };
 		AE12019329DC57E700EBD14B /* DiaryCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE12019229DC57E700EBD14B /* DiaryCellViewModel.swift */; };
+		AE757D132B78BD8D00C85140 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE757D122B78BD8D00C85140 /* String.swift */; };
 		AE85BFA029D46A67002FD898 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85BF9F29D46A67002FD898 /* CoreDataRepository.swift */; };
 		AE85BFA229D46B03002FD898 /* DiaryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85BFA129D46B03002FD898 /* DiaryUseCase.swift */; };
 		AE85BFA429D4733D002FD898 /* DiaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE85BFA329D4733D002FD898 /* DiaryRepository.swift */; };
@@ -54,6 +55,8 @@
 		AE12018C29DC553300EBD14B /* DiaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE12019029DC572500EBD14B /* DiaryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryItem.swift; sourceTree = "<group>"; };
 		AE12019229DC57E700EBD14B /* DiaryCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCellViewModel.swift; sourceTree = "<group>"; };
+		AE757D112B78BD3B00C85140 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		AE757D122B78BD8D00C85140 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		AE85BF9F29D46A67002FD898 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		AE85BFA129D46B03002FD898 /* DiaryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryUseCase.swift; sourceTree = "<group>"; };
 		AE85BFA329D4733D002FD898 /* DiaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryRepository.swift; sourceTree = "<group>"; };
@@ -437,6 +440,7 @@
 				AEF1120C29E7179800DEC8D8 /* Reactive.swift */,
 				AEB042292A0A4BA20039B269 /* UISearchTextField.swift */,
 				AEA160152A0E6839006E7FF5 /* Date.swift */,
+				AE757D122B78BD8D00C85140 /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -495,6 +499,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = AEC65EC729C098C8006E8177;
 			productRefGroup = AEC65ED129C098C8006E8177 /* Products */;
@@ -592,6 +597,7 @@
 				AEB042262A08ED420039B269 /* SearchViewModel.swift in Sources */,
 				AEE140342A00C2FF0070E2C3 /* RecordViewModel.swift in Sources */,
 				AEC65ED429C098C8006E8177 /* AppDelegate.swift in Sources */,
+				AE757D132B78BD8D00C85140 /* String.swift in Sources */,
 				AEC65ED629C098C8006E8177 /* SceneDelegate.swift in Sources */,
 				AEC65EDE29C098C8006E8177 /* DiaryDAO.xcdatamodeld in Sources */,
 				AEE1402A29FA4EC90070E2C3 /* AlertManager.swift in Sources */,
@@ -611,6 +617,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				AEC65EE229C098C9006E8177 /* Base */,
+				AE757D112B78BD3B00C85140 /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -622,6 +629,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -682,6 +690,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
