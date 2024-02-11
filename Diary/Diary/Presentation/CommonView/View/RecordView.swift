@@ -14,6 +14,7 @@ final class RecordView: UIView {
         label.textAlignment = .left
         label.font = UIFont.preferredFont(forTextStyle: .title2)
         label.setContentCompressionResistancePriority(.required, for: .vertical)
+        label.textColor = UIColor(named: Color.text)
         return label
     }()
 
@@ -69,12 +70,15 @@ final class RecordView: UIView {
         textView.layer.borderColor = UIColor(named: Color.main)?.cgColor
         textView.layer.borderWidth = Layout.borderWidth
         textView.layer.cornerRadius = Layout.cornerRadius
+        textView.textColor = UIColor(named: Color.text)
+        textView.backgroundColor = UIColor(named: Color.background)
         return textView
     }()
 
     private(set) var bodyTextView: UITextView = {
         let textView = UITextView()
-        textView.textColor = .black
+        textView.textColor = UIColor(named: Color.text)
+        textView.backgroundColor = UIColor(named: Color.background)
         textView.font = UIFont.preferredFont(forTextStyle: .body)
         textView.textContainerInset = UIEdgeInsets(top: Layout.textContainerInsetTop,
                                                    left: Layout.textContainerInsetLeft,

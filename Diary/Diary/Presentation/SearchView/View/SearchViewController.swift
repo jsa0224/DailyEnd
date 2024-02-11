@@ -26,7 +26,7 @@ class SearchViewController: UIViewController {
         let datePicker = UIDatePicker()
         datePicker.preferredDatePickerStyle = .inline
         datePicker.datePickerMode = .date
-        datePicker.backgroundColor = .white
+        datePicker.backgroundColor = UIColor(named: Color.background)
         return datePicker
     }()
     private var collectionView: UICollectionView?

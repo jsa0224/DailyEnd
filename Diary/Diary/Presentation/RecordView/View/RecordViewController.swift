@@ -60,7 +60,7 @@ final class RecordViewController: UIViewController {
                                                constant: Layout.bottomAnchorConstant)
         ])
 
-        recordView.backgroundColor = .white
+        recordView.backgroundColor = UIColor(named: Color.background)
         recordView.layer.cornerRadius = Layout.cornerRadius
         recordView.clipsToBounds = true
         recordView.isHiddenImage(true)

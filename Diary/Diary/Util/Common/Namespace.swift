@@ -10,6 +10,8 @@ import Foundation
 enum Color {
     static let main = "mainColor"
     static let selected = "selectedColor"
+    static let text = "textColor"
+    static let background = "backgroundColor"
 }
 
 enum Description {
