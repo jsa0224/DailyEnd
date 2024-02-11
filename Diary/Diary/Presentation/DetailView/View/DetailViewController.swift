@@ -70,7 +70,7 @@ final class DetailViewController: UIViewController {
                                                     constant: Layout.bottomAnchorConstant)
         ])
 
-        diaryDetailView.backgroundColor = .white
+        diaryDetailView.backgroundColor = UIColor(named: Color.background)
         diaryDetailView.layer.cornerRadius = Layout.cornerRadius
         diaryDetailView.clipsToBounds = true
     }

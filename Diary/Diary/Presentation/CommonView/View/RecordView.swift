@@ -150,7 +150,7 @@ final class RecordView: UIView {
     }
 
     func configureView(_ item: DiaryItem) {
-        dateLabel.text = item.createdAt
+        dateLabel.text = item.createdAt.localized
     }
 
     func isHiddenImage(_ boolean: Bool) {
