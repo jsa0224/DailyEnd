@@ -22,6 +22,7 @@ final class DiaryView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = UIFont.preferredFont(forTextStyle: .title2)
+        label.textColor = UIColor(named: Color.text)
         return label
     }()
 
@@ -59,6 +60,8 @@ final class DiaryView: UIView {
                                                    left: Layout.textContainerInsetTitleLeft,
                                                    bottom: Layout.textContainerInsetBottom,
                                                    right: Layout.textContainerInsetBottom)
+        textView.textColor = UIColor(named: Color.text)
+        textView.backgroundColor = UIColor(named: Color.background)
         return textView
     }()
 
@@ -73,6 +76,8 @@ final class DiaryView: UIView {
         textView.keyboardDismissMode = .onDrag
         textView.setContentHuggingPriority(.init(Layout.contentHuggingPriority),
                                            for: .vertical)
+        textView.textColor = UIColor(named: Color.text)
+        textView.backgroundColor = UIColor(named: Color.background)
         return textView
     }()
 

@@ -81,7 +81,7 @@ final class DiaryCollectionViewCell: UICollectionViewCell {
             dairyView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
 
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = UIColor(named: Color.background)
         contentView.layer.cornerRadius = Layout.cornerRadius
         contentView.clipsToBounds = true
         contentView.systemLayoutSizeFitting(.init(width: self.bounds.width, height: self.bounds.height))
