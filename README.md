@@ -2,7 +2,7 @@
 
 > [🍎 AppStore 다운로드](https://apps.apple.com/kr/app/%EB%8D%B0%EC%9D%BC%EB%A6%AC%EC%97%94%EB%93%9C/id6477771472)
 
-![Cover (1)](https://github.com/jsa0224/DailyEnd/assets/94514250/f2659178-08f5-46be-98a1-630d7db6fe76)
+![Cover (2)](https://github.com/jsa0224/DailyEnd/assets/94514250/d11d32ed-be7a-4301-ad46-0db43797d3dc)
 
 > 기존의 야곰 아카데미에서 진행한 토이 프로젝트 Diary를 RxSwift와 MVVM, Clean Architecture를 활용하여 리팩토링한 프로젝트입니다.
 
