@@ -73,6 +73,9 @@ final class DetailViewController: UIViewController {
         diaryDetailView.backgroundColor = UIColor(named: Color.background)
         diaryDetailView.layer.cornerRadius = Layout.cornerRadius
         diaryDetailView.clipsToBounds = true
+        
+        addDoneButtonOnKeyboard(textView: diaryDetailView.titleTextView)
+        addDoneButtonOnKeyboard(textView: diaryDetailView.bodyTextView)
     }
 
     private func bind() {

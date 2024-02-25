@@ -10,11 +10,12 @@ import RxSwift
 
 final class SearchViewModel {
     struct Input {
+        let defaultValue: Observable<String>
         let didEndSearching: Observable<String>
     }
 
     struct Output {
-        let diary: Observable<[Diary]>
+        let diariesOfSearchResult: Observable<[Diary]>
     }
 
     private let diaryUseCase: DiaryUseCaseType
@@ -25,13 +26,13 @@ final class SearchViewModel {
     }
 
     func transform(_ input: Input) -> Output {
-        let diary = input.didEndSearching
+        let diaries = Observable.merge(input.defaultValue, input.didEndSearching)
             .filter { !$0.isEmpty }
             .withUnretained(self)
             .flatMap { owner, dateToString in
                 owner.diaryUseCase.fetch(with: dateToString)
             }
 
-        return Output(diary: diary)
+        return Output(diariesOfSearchResult: diaries)
     }
 }
