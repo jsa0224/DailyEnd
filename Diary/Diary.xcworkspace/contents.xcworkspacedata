@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Diary.xcodeproj">
+      location = "group:/Users/puccav/Desktop/yagom/&#x1105;&#x1175;&#x1111;&#x1162;&#x11a8;&#x1110;&#x1169;&#x1105;&#x1175;&#x11bc;/ios-diary-RxSwift/Diary/DailyEnd.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

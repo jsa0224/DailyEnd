@@ -77,7 +77,7 @@
 		AEB042272A08ED550039B269 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AEB042292A0A4BA20039B269 /* UISearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchTextField.swift; sourceTree = "<group>"; };
 		AEBCC6EF2B884C4D00B630C6 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		AEC65ED029C098C8006E8177 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEC65ED029C098C8006E8177 /* DailyEnd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyEnd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC65ED329C098C8006E8177 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEC65ED529C098C8006E8177 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AEC65ED729C098C8006E8177 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -333,7 +333,7 @@
 		AEC65EC729C098C8006E8177 = {
 			isa = PBXGroup;
 			children = (
-				AEC65ED229C098C8006E8177 /* Diary */,
+				AEC65ED229C098C8006E8177 /* DailyEnd */,
 				AEC65ED129C098C8006E8177 /* Products */,
 				6BD566F2035EEAFEBA79E1A6 /* Pods */,
 				4877A971DBE91F529FB629CE /* Frameworks */,
@@ -343,12 +343,12 @@
 		AEC65ED129C098C8006E8177 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AEC65ED029C098C8006E8177 /* Diary.app */,
+				AEC65ED029C098C8006E8177 /* DailyEnd.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AEC65ED229C098C8006E8177 /* Diary */ = {
+		AEC65ED229C098C8006E8177 /* DailyEnd */ = {
 			isa = PBXGroup;
 			children = (
 				AEEF09A229C09DAE0029CC46 /* App */,
@@ -359,7 +359,7 @@
 				AEF1120E29EA833A00DEC8D8 /* Resource */,
 				AEC65EDC29C098C8006E8177 /* DiaryDAO.xcdatamodeld */,
 			);
-			path = Diary;
+			path = DailyEnd;
 			sourceTree = "<group>";
 		};
 		AEC65EED29C09A45006E8177 /* Domain */ = {
@@ -461,9 +461,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AEC65ECF29C098C8006E8177 /* Diary */ = {
+		AEC65ECF29C098C8006E8177 /* DailyEnd */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AEC65EE729C098C9006E8177 /* Build configuration list for PBXNativeTarget "Diary" */;
+			buildConfigurationList = AEC65EE729C098C9006E8177 /* Build configuration list for PBXNativeTarget "DailyEnd" */;
 			buildPhases = (
 				F7DAB0396593AC394F6BD09C /* [CP] Check Pods Manifest.lock */,
 				AEC65ECC29C098C8006E8177 /* Sources */,
@@ -475,9 +475,9 @@
 			);
 			dependencies = (
 			);
-			name = Diary;
+			name = DailyEnd;
 			productName = Diary;
-			productReference = AEC65ED029C098C8006E8177 /* Diary.app */;
+			productReference = AEC65ED029C098C8006E8177 /* DailyEnd.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -495,7 +495,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AEC65ECB29C098C8006E8177 /* Build configuration list for PBXProject "Diary" */;
+			buildConfigurationList = AEC65ECB29C098C8006E8177 /* Build configuration list for PBXProject "DailyEnd" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -509,7 +509,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AEC65ECF29C098C8006E8177 /* Diary */,
+				AEC65ECF29C098C8006E8177 /* DailyEnd */,
 			);
 		};
 /* End PBXProject section */
@@ -808,7 +808,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AEC65ECB29C098C8006E8177 /* Build configuration list for PBXProject "Diary" */ = {
+		AEC65ECB29C098C8006E8177 /* Build configuration list for PBXProject "DailyEnd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AEC65EE529C098C9006E8177 /* Debug */,
@@ -817,7 +817,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AEC65EE729C098C9006E8177 /* Build configuration list for PBXNativeTarget "Diary" */ = {
+		AEC65EE729C098C9006E8177 /* Build configuration list for PBXNativeTarget "DailyEnd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AEC65EE829C098C9006E8177 /* Debug */,

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AEC65ECF29C098C8006E8177"
-               BuildableName = "Diary.app"
-               BlueprintName = "Diary"
-               ReferencedContainer = "container:Diary.xcodeproj">
+               BuildableName = "DailyEnd.app"
+               BlueprintName = "DailyEnd"
+               ReferencedContainer = "container:DailyEnd.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,7 +42,7 @@
                BlueprintIdentifier = "AEE547612B68EDE400431B73"
                BuildableName = "DiaryTests.xctest"
                BlueprintName = "DiaryTests"
-               ReferencedContainer = "container:Diary.xcodeproj">
+               ReferencedContainer = "container:DailyEnd.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AEC65ECF29C098C8006E8177"
-            BuildableName = "Diary.app"
-            BlueprintName = "Diary"
-            ReferencedContainer = "container:Diary.xcodeproj">
+            BuildableName = "DailyEnd.app"
+            BlueprintName = "DailyEnd"
+            ReferencedContainer = "container:DailyEnd.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -79,9 +79,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AEC65ECF29C098C8006E8177"
-            BuildableName = "Diary.app"
-            BlueprintName = "Diary"
-            ReferencedContainer = "container:Diary.xcodeproj">
+            BuildableName = "DailyEnd.app"
+            BlueprintName = "DailyEnd"
+            ReferencedContainer = "container:DailyEnd.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
