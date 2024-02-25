@@ -66,6 +66,7 @@ class SearchViewController: UIViewController {
         view.backgroundColor = UIColor(named: Color.main)
         navigationItem.searchController = searchController
         searchController.searchBar.searchTextField.setDatePicker(datePicker)
+        addDoneButtonOnKeyboard(textField: searchController.searchBar.searchTextField)
     }
 
     private func handlePicker() {
@@ -79,12 +80,16 @@ class SearchViewController: UIViewController {
     }
 
     private func bind() {
-        let searchDiary = datePicker.rx.value
+        let defaultVaule = datePicker.rx.value
+            .asObservable()
+            .map { $0.convertDateToString() }
+
+        let changedValue = datePicker.rx.value
             .changed
             .asObservable()
             .map { $0.convertDateToString() }
 
-        let input = SearchViewModel.Input(didEndSearching: searchDiary)
+        let input = SearchViewModel.Input(defaultValue: defaultVaule, didEndSearching: changedValue)
         let output = viewModel.transform(input)
 
         guard let collectionView = collectionView else {
@@ -92,7 +97,7 @@ class SearchViewController: UIViewController {
         }
 
         output
-            .diary
+            .diariesOfSearchResult
             .map { diaries in
                 if diaries.isEmpty {
                     self.configureAlert()

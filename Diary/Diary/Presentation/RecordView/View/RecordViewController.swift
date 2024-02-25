@@ -64,6 +64,9 @@ final class RecordViewController: UIViewController {
         recordView.layer.cornerRadius = Layout.cornerRadius
         recordView.clipsToBounds = true
         recordView.isHiddenImage(true)
+
+        addDoneButtonOnKeyboard(textView: recordView.titleTextView)
+        addDoneButtonOnKeyboard(textView: recordView.bodyTextView)
     }
 
     private func bind() {

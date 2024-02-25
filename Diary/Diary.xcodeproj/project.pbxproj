@@ -30,6 +30,7 @@
 		AEB042262A08ED420039B269 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB042252A08ED420039B269 /* SearchViewModel.swift */; };
 		AEB042282A08ED550039B269 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB042272A08ED550039B269 /* SearchViewController.swift */; };
 		AEB0422A2A0A4BA20039B269 /* UISearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB042292A0A4BA20039B269 /* UISearchTextField.swift */; };
+		AEBCC6F02B884C4D00B630C6 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBCC6EF2B884C4D00B630C6 /* UIViewController.swift */; };
 		AEC65ED429C098C8006E8177 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED329C098C8006E8177 /* AppDelegate.swift */; };
 		AEC65ED629C098C8006E8177 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED529C098C8006E8177 /* SceneDelegate.swift */; };
 		AEC65ED829C098C8006E8177 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC65ED729C098C8006E8177 /* HomeViewController.swift */; };
@@ -75,6 +76,7 @@
 		AEB042252A08ED420039B269 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		AEB042272A08ED550039B269 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AEB042292A0A4BA20039B269 /* UISearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearchTextField.swift; sourceTree = "<group>"; };
+		AEBCC6EF2B884C4D00B630C6 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		AEC65ED029C098C8006E8177 /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEC65ED329C098C8006E8177 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEC65ED529C098C8006E8177 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				AEB042292A0A4BA20039B269 /* UISearchTextField.swift */,
 				AEA160152A0E6839006E7FF5 /* Date.swift */,
 				AE757D122B78BD8D00C85140 /* String.swift */,
+				AEBCC6EF2B884C4D00B630C6 /* UIViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				AEA160202A113632006E7FF5 /* Namespace.swift in Sources */,
 				AEA8BB9229F8F3D800B50AA8 /* DetailViewModel.swift in Sources */,
 				AE12019329DC57E700EBD14B /* DiaryCellViewModel.swift in Sources */,
+				AEBCC6F02B884C4D00B630C6 /* UIViewController.swift in Sources */,
 				AEB0422A2A0A4BA20039B269 /* UISearchTextField.swift in Sources */,
 				AEA1601B2A0F91FF006E7FF5 /* DiaryDAO+CoreDataProperties.swift in Sources */,
 				AEB042262A08ED420039B269 /* SearchViewModel.swift in Sources */,
